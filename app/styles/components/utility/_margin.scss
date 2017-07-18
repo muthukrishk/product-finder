@@ -1,0 +1,50 @@
+
+
+.m0  { margin:        0 }
+.mt0 { margin-top:    0 }
+.mr0 { margin-right:  0 }
+.mb0 { margin-bottom: 0 }
+.ml0 { margin-left:   0 }
+.mx0 { margin-left:   0; margin-right:  0 }
+.my0 { margin-top:    0; margin-bottom: 0 }
+
+.m1  { margin:        $marginDivident }
+.mt1 { margin-top:    $marginDivident } 
+.mr1 { margin-right:  $marginDivident }
+.mb1 { margin-bottom: $marginDivident }
+.ml1 { margin-left:   $marginDivident }
+.mx1 { margin-left:   $marginDivident; margin-right:  $marginDivident }
+.my1 { margin-top:    $marginDivident; margin-bottom: $marginDivident }
+
+.m2  { margin:        $marginDivident * 2 }
+.mt2 { margin-top:    $marginDivident * 2 }
+.mr2 { margin-right:  $marginDivident * 2 }
+.mb2 { margin-bottom: $marginDivident * 2 }
+.ml2 { margin-left:   $marginDivident * 2 }
+.mx2 { margin-left:   $marginDivident * 2; margin-right:  $marginDivident * 2 }
+.my2 { margin-top:    $marginDivident * 2; margin-bottom: $marginDivident * 2 }
+
+.m3  { margin:        $marginDivident * 3 }
+.mt3 { margin-top:    $marginDivident * 3 }
+.mr3 { margin-right:  $marginDivident * 3 }
+.mb3 { margin-bottom: $marginDivident * 3 }
+.ml3 { margin-left:   $marginDivident * 3 }
+.mx3 { margin-left:   $marginDivident * 3; margin-right: $marginDivident * 3 }
+.my3 { margin-top:    $marginDivident * 3; margin-bottom: $marginDivident * 3 }
+
+.m4  { margin:        $marginDivident * 4 }
+.mt4 { margin-top:    $marginDivident * 4 }
+.mr4 { margin-right:  $marginDivident * 4 }
+.mb4 { margin-bottom: $marginDivident * 4 }
+.ml4 { margin-left:   $marginDivident * 4 }
+.mx4 { margin-left:   $marginDivident * 4; margin-right:  $marginDivident * 4 }
+.my4 { margin-top:    $marginDivident * 4; margin-bottom: $marginDivident * 4 }
+
+.mxn1 { margin-left: $marginDivident * 1; margin-right: $marginDivident * 1; }
+.mxn2 { margin-left:$marginDivident * 2; margin-right:$marginDivident * 2; }
+.mxn3 { margin-left:$marginDivident * 3; margin-right: $marginDivident * 3; }
+.mxn4 { margin-left: $marginDivident * 4; margin-right: $marginDivident * 4; }
+
+.ml-auto { margin-left: auto }
+.mr-auto { margin-right: auto }
+.mx-auto { margin-left: auto; margin-right: auto; }

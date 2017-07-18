@@ -1,0 +1,118 @@
+//** Deprecated `$screen-xs` as of v3.0.1
+$screen-xs:                  480px !default;
+//** Deprecated `$screen-xs-min` as of v3.2.0
+$screen-xs-min:              $screen-xs !default;
+//** Deprecated `$screen-phone` as of v3.0.1
+$screen-phone:               $screen-xs-min !default;
+
+// Small screen / tablet
+//** Deprecated `$screen-sm` as of v3.0.1
+$screen-sm:                  768px !default;
+$screen-sm-min:              $screen-sm !default;
+//** Deprecated `$screen-tablet` as of v3.0.1
+$screen-tablet:              $screen-sm-min !default;
+
+// Medium screen / desktop
+//** Deprecated `$screen-md` as of v3.0.1
+$screen-md:                  992px !default;
+$screen-md-min:              $screen-md !default;
+//** Deprecated `$screen-desktop` as of v3.0.1
+$screen-desktop:             $screen-md-min !default;
+
+// Large screen / wide desktop
+//** Deprecated `$screen-lg` as of v3.0.1
+$screen-lg:                  1200px !default;
+$screen-lg-min:              $screen-lg !default;
+//** Deprecated `$screen-lg-desktop` as of v3.0.1
+$screen-lg-desktop:          $screen-lg-min !default;
+
+// So media queries don't overlap when required, provide a maximum
+$screen-xs-max:              ($screen-sm-min - 1) !default;
+$screen-sm-max:              ($screen-md-min - 1) !default;
+$screen-md-max:              ($screen-lg-min - 1) !default;
+
+
+//== Grid system
+//
+//## Define your custom responsive grid.
+
+//** Number of columns in the grid.
+$grid-columns:              12 !default;
+//** Padding between columns. Gets divided in half for the left and right.
+$grid-gutter-width:         30px !default;
+// Navbar collapse
+//** Point at which the navbar becomes uncollapsed.
+$grid-float-breakpoint:     $screen-sm-min !default;
+//** Point at which the navbar begins collapsing.
+$grid-float-breakpoint-max: ($grid-float-breakpoint - 1) !default;
+
+$containerWidth: 1100px;
+
+
+$xlargePadding: 120px;
+$largePadding: 48px;
+$mediumPadding: 32px;
+$smallPadding: 15px;
+
+$light-black: rgba(0, 0, 0, 0.3);
+
+
+$topBarColor: #e23b48;
+$white: #fff;
+$bodyBg: #eee;
+$paraGraph: #5a5a5a;
+
+$headingFont:  'FreshSans', sans-serif;
+$headingFontSlant:  'FreshScriptRegular', sans-serif;
+$headingFontMedium:  'FreshSans', sans-serif;
+$heveticaRegular:  'HelveticaRegular', sans-serif;
+$FreshSans:  'FreshSans', sans-serif;
+
+$errorMessage: #ff4747;
+
+$darkGreen: #125430;
+$darkHoverGreen: #0E4728;
+$darkestGreen: #072d19;
+$inactiveGreen: #d0ddd6;
+
+$mildGreen: #25861e;
+$mildHoverGreen: #1c6917;
+$mildDarkestGreen: #125430;
+$inactiveLightGreen: #d3e792;
+
+$yellow: #ffda00;
+$hoverYellow: #f5d30a;
+$darkestYellow: #edc00a;
+$inactiveYellow: #f2ecd4;
+
+$grey: #eeeeee;
+$darkerGrey: #dfdfdf;
+$darkestGrey: #d2d2d2;
+$light: #fff;
+
+$charcoal: #39464e;
+$darkerCharcoal: #283035;
+$darkestCharcoal: #181e21;
+$charcoalLight: #c0c2c3;
+
+$danger: #e2001a;
+
+$greyText: #9a9a9a;
+
+$btnRoundColor: #757476;
+$btnRoundBg: #f2f3f0;
+
+$formErrorBg: #fef3f4;
+$formErrorBorder: #ef1a24;
+
+$offerBg: rgb(255, 221, 0);
+
+$baseFontSize: 16px;
+$marginDivident: 5px;
+$paddingDivident: 5px;
+
+
+
+
+
+$linkColor: $mildGreen;

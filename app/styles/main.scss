@@ -1,0 +1,196 @@
+
+@import 'vendor/bootstrap';
+@import 'components/theme/default';
+@import 'components/grid/mixin';
+@import 'components/grid/flexgrid';
+@import 'components/responsive/mixin';
+@import 'components/thumbnail/component';
+@import 'components/heading';
+@import 'components/typography';
+@import 'components/button';
+@import 'components/layout';
+@import 'components/container';
+@import 'components/list';
+@import 'components/form';
+@import 'components/media';
+@import 'components/alerts';
+@import 'components/modal';
+@import 'components/tile';
+@import 'components/sort';
+@import 'components/pagination';
+@import 'components/imageComponent';
+@import 'components/utility/padding';
+@import 'components/utility/margin';
+@import 'components/fonts/fonts';
+
+html {
+	height: 100%;
+	font-size: 16px;
+}
+
+body {
+  font-family: 'Helvetica';
+  background: $bodyBg;
+  line-height: 24px;
+  color: #39464e;
+  position: relative;
+}
+
+.container {
+	max-width: 960px;
+	margin: auto;
+}
+
+.bodyBg {
+	background:
+    /* top, transparent red, faked with gradient */
+    linear-gradient(
+      rgba(29,98,49, 0.95),
+      rgba(29,98,49, 0.95)
+    ),
+    /* bottom, image */
+    url(../images/bg.jpg);
+		 height: 100%;
+		 width: 100%;
+		-webkit-filter: blur(5px);
+	  -o-filter: blur(5px);
+	  filter: blur(5px);
+	  background-size: cover;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: absolute;
+}
+
+.searchLanding {
+	padding: 100px 0;
+	h1 {
+		position: relative;
+	}
+	.form {
+		padding: 100px 0;
+	}
+}
+
+.brand {
+  position: relative;
+  z-index: 1;
+  img {
+  	max-width: 40%;
+  }
+}
+
+.iconed-auto-completed {
+	position: relative;
+	.icon {
+		position: absolute;
+		top: 0px;
+		right: 15px;
+		font-size: 2rem;
+		color: $mildGreen;
+	}
+}
+
+.autocomplete {
+	input {
+		padding: 8px 70px 10px 10px;
+		font-weight: 500;
+    font-size: 1.3rem;
+	}
+}
+
+tags-input {
+	&.form-control {
+		padding: 0;
+		border: 0;
+	}
+
+	.host {
+		margin: 0;
+		outline: 0;
+		.tag-template {
+			font-size: 1.2rem;
+	    line-height: 30px;
+	    font-weight: 500;
+	    padding-right: 60px;
+		}
+	}
+	.tags {
+		border-radius: 5px;
+    border: 0;
+		&.focused {
+			box-shadow: 0 0 0;
+		}
+	 .input{
+	 		border: 0;
+	 		font-size: 1.2rem;
+	 		font-family: $FreshSans;
+	 		padding-left: 5px;
+	 		height: 95%;
+	 		color: #555;
+	 		font-weight: 500;
+	 		&:focus {
+	 			outline: 0;
+	 			border: 0;
+	 		}
+	 	}
+	 	.tag-item {
+	 		font-family: $FreshSans;
+	 		font-size: 1.4rem;
+	 		height: 36px;
+	 		width: 100%;
+	 		padding: 6px 12px 12px 12px;
+	 		background: none;
+	 		border: 0;
+	 		.remove-button {
+	 			font: normal 3rem $FreshSans;
+		    float: right;
+		    top: 0;
+		    color: #999;
+		    right: 0;
+		    line-height: 30px;
+		    &:hover {
+		    	text-decoration: none;
+		    }
+	 		}
+	 		&.selected {
+	 			background: none;
+	 		}
+	 	}
+	}
+	.autocomplete {
+		.suggestion-list {
+			max-height: 150px;
+		}
+		.suggestion-item {
+			padding: 12px 10px;
+    	font-size: 1.0rem;
+    	font-family: $FreshSans;
+    	font-weight: 500;
+    	background: #f2f2f2;
+    	color: $mildGreen;
+			&.selected {
+				background: $mildGreen;
+				color: $light;
+			}
+		}
+	}
+}
+
+.autoComplete {
+	margin-top: -5px;
+	padding: 10px 0 0 0;
+	.autocomplete  {
+		margin-top: -5px;
+		box-shadow: inset 0 5px 6px rgba(0, 0, 0, 0.2);
+    border-radius: 0 0 5px 5px;
+    border: 1px solid #fff;
+    padding-top: 10px;
+    padding: 10px 0 2px 0;
+	}
+	.suggestion-list {
+		border: 0;
+	}
+}

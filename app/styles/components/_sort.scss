@@ -1,0 +1,66 @@
+.sortComponent {
+  margin: 20px 0;
+  .small {
+    margin-bottom: 0;
+  }
+}
+
+.select2-container {
+  border: 0;
+  .select2-chosen {
+    font-size: 1.1rem;
+    margin-right: 0;
+  }
+  .select2-choice {
+    border: 0;
+    background: transparent;
+    font-family: $FreshSans;
+    font-weight: 500;
+    color: #777;
+    font-size: 1.1rem;
+    padding-left: 0;
+    box-shadow: 0 0 0;
+    .select2-arrow {
+      background: transparent;
+      border: 0;
+      b {
+        background-image: none !important;
+        &:after {
+          content: "\f107";
+          font: normal normal normal 14px/1 FontAwesome;
+        }
+
+      }
+    }
+  }
+}
+.select2-results {
+  border: 1px solid $charcoal;
+  margin: 0;
+  min-width: 250px;
+  padding: 0;
+  background: $light;
+  max-height: none;
+  .select2-highlighted {
+    color: $charcoal;
+    background: $light;
+  }
+  li {
+    padding: 4px;
+    font-family: $FreshSans;
+    color: $charcoal;
+    font-weight: 500;
+    font-size: 1.1rem;
+    background: #f2f3f0;
+  }
+}
+
+.select2-search {
+  display: none;
+}
+
+.select2-drop-active {
+  border: 0;
+  border-top: none;
+  padding: 0;
+}

@@ -1,0 +1,38 @@
+.alert {
+  padding: 15px;
+  background: $yellow;
+  border-radius: 0;
+  &.form-error {
+    background-color: $formErrorBg;
+    border: solid 1px $formErrorBorder;
+    &.hide {
+      display: none;
+    }
+    &.show {
+      display: block;
+    }
+  }
+  h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+  }
+  &.alert-banner {
+    background: $mildGreen;
+    h1,h2,h3,h4,h5,h6 {
+      color: $light;
+    }
+    p {
+      color: $light;
+      margin-bottom: 0;
+    }
+  }
+  &.alert-danger {
+    background: $mildGreen;
+    h1,h2,h3,h4,h5,h6 {
+      color: $light;
+    }
+    p {
+      color: $light;
+      margin-bottom: 0;
+    }
+  }
+}

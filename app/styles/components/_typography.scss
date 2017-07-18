@@ -1,0 +1,118 @@
+
+.bold, b    { font-weight: bold; font-family: $FreshSans; font-weight: 500}
+.regular { font-weight: normal }
+.italic, i { font-style: italic }
+.caps    { text-transform: uppercase; }
+
+.left-align   { text-align: left }
+.center       { text-align: center }
+.right-align  { text-align: right }
+.justify      { text-align: justify }
+
+.nowrap { white-space: nowrap }
+.break-word { word-wrap: break-word }
+.underline { text-decoration: underline }
+.text-decoration-none { text-decoration: none }
+.text-grey{color: $greyText}
+
+.mandatory-text {
+  font-size: 0.9rem;
+  color: #777777;
+  font-style: italic;
+}
+
+
+.truncate {
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.primary-text-medium {
+  font-family: $FreshSans;
+  font-weight: 500;
+}
+.primary-text-medium-italic {
+  font-family: $FreshSans;
+  font-style: italic;
+  font-weight: 500;
+}
+
+.primary-text-light {
+  font-family: $FreshSans;
+  font-weight: 300;
+}
+.primary-text-light-italic {
+  font-family: $FreshSans;
+  font-style: italic;
+  font-weight: 300;
+}
+
+
+.text-small {
+  font-size: 0.9rem;
+  display: flow-root;
+}
+.small {
+  font-size: 0.8rem;
+  line-height: 18px;
+  font-family: $heveticaRegular;
+  color: $paraGraph;
+  li, p, * {
+    font-size: 0.9rem;
+    line-height: 22px;
+  }
+}
+
+.muted {
+  color: #777;
+}
+
+hr {
+  margin: 10px 0;
+}
+
+.list-style-none { list-style: none }
+
+.list-reset {
+  list-style: none;
+  padding-left: 0;
+}
+
+
+.pLarge {
+  font-size: 1rem;
+  line-height: 26px;
+  font-family: $heveticaRegular;
+  color: $paraGraph;
+  li, p, * {
+    font-size: 1rem;
+    line-height: 26px;
+  }
+}
+
+.pSmall {
+  font-size: 0.9rem;
+  line-height: 22px;
+  font-family: $heveticaRegular;
+  color: $paraGraph;
+  li, p, * {
+    font-size: 0.9rem;
+    line-height: 22px;
+  }
+}
+
+a:not(.btn) {
+  color: $linkColor;
+  &:hover {
+    color: $linkColor;
+    cursor: pointer;
+  }
+  i {
+    margin-right: 0px;
+  }
+}
+
+.green {
+  color: $mildGreen !important;
+}

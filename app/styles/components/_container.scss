@@ -1,0 +1,142 @@
+.inner-container {
+  max-width: $containerWidth;
+  margin: 0 auto;
+  padding:  60px 40px;
+  @media (max-width: 991px) {
+    padding:  60px 100px;
+  }
+  @media (max-width: 880px) {
+    padding:  60px 50px;
+  }
+  @media (max-width: 768px) {
+    padding:  60px 40px;
+  }
+  @media (max-width: 640px) {
+    padding: 100px 0 0 0;
+    overflow: hidden;
+  }
+  .items-center {
+    @media (max-width: 648px) {
+      text-align: center;
+    }
+    .form-check {
+      float: left;
+    }
+  }
+}
+
+.grey-container {
+  padding: 15px;
+  background-color: #f5f5f5;
+  h1, h2, h3, h4, h5, h6 {
+    margin-bottom: 5px;
+  }
+}
+
+.tilelist-container{
+  margin: 30px auto;
+  @media (max-width: 1539px) and (min-width: 1300px) {   width: 960px;
+  }
+  @media (max-width: 1299px) and (min-width: 940px) {
+    width: 720px;
+  }
+  @media (max-width: 939px) and (min-width: 768px) {
+    width: 480px;
+  }
+}
+
+.content-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 30px 20px;
+  @media (max-width: 880px) {
+    padding: 30px;
+  }
+  @media (max-width: 768px) {
+    padding: 30px 20px;
+  }
+
+}
+
+.container-fluid {
+  padding: 0;
+  margin: 0;
+}
+
+.section-row {
+  background: #fff;
+  &.smoke {
+    background: #eee;
+  }
+  &.light {
+    background: #fff;
+  }
+}
+
+
+.section-large{
+  padding: $largePadding;
+  background: $light;
+  box-shadow: 0 0 4px $darkestGrey;
+  margin-bottom: 30px;
+  @media (max-width: 768px) {
+    padding: 48px 120px;
+  }
+  @media (max-width: 640px) {
+    padding: 30px 60px;
+
+  }
+  @media (max-width: 468px) {
+    padding: 30px 15px;
+    margin-bottom: 0;
+  }
+}
+
+.section-medium{
+  padding: $mediumPadding;
+  background: $light;
+  box-shadow: 0 0 4px $darkestGrey;
+  margin-bottom: 30px;
+  @media (max-width: 768px) {
+    padding: 48px 120px;
+  }
+  @media (max-width: 640px) {
+    padding: 30px 60px;
+  }
+  @media (max-width: 468px) {
+    padding: 30px 15px;
+    margin-bottom: 0;
+  }
+}
+
+
+
+.section-xlarge{
+  padding: $largePadding $xlargePadding;;
+  background: $light;
+  box-shadow: 0 0 4px $darkestGrey;
+  margin-bottom: 30px;
+  @media (max-width: 768px) {
+    padding: 48px 120px;
+  }
+  @media (max-width: 640px) {
+    padding: 30px 60px;
+  }
+  @media (max-width: 468px) {
+    padding: 30px 15px;
+    margin-bottom: 0;
+  }
+}
+
+
+.section-small{
+  padding: $smallPadding;
+  background: $light;
+  box-shadow: 0 0 4px $darkestGrey;
+}
+
+.heroBanner {
+  img {
+    max-width: 100%;
+  }
+}

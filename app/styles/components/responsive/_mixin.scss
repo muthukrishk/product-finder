@@ -1,0 +1,133 @@
+$sizes__map : (
+    xsmall: 320px,
+    small: 480px,
+    xmedium: 640px,
+    medium: 768px,
+    large: 960px,
+    largest: 1080px,
+    xlargest: 1240px
+);
+
+
+@mixin media($breakpoint, $breakpoint__two:null) {
+    // setting up variables for the second query, if needed
+    $first-query: map-get($sizes__map, $breakpoint);
+    $second-query: map-get($sizes__map, $breakpoint__two);
+
+    // checks for single or dual arguement inputted
+    @if $breakpoint__two == null {
+        $mapped__keys : map-keys($sizes__map);
+
+        // get current index of breakpoint to decide what query to run
+        $index : index($mapped__keys, $breakpoint);
+        @if $index {
+            // if it is not the last item in the map, run this
+            @if $index < length($sizes__map) {
+                @media screen and (min-width : map-get($sizes__map, $breakpoint ) ) and (max-width: map-get($sizes__map, nextKey($breakpoint) )  - 1 ) {
+                    @content;
+                }
+            }
+            // if it is the last in the map, run this
+            @elseif $index == length($sizes__map) {
+                @media screen and (min-width : map-get($sizes__map, $breakpoint) ) {
+                    @content;
+                }
+            }
+        }
+        // if key does not exsist, run this
+        @else {
+            @error "Sorry but #{$breakpoint} is not a breakpoint in your setup";
+        }
+    }
+    // will call if two arguements inputted are the same type
+    @elseif type-of($breakpoint) == type-of($breakpoint__two)  {
+        body {
+            color: purple!important;
+        }
+        // if breakpoint is a string
+        @if type-of($breakpoint) == string {
+
+            // if both values are in the $sizes__map
+            @if $first-query and $second-query {
+
+                // corrects ordering of variables for correct media query output
+                @if $first-query < $second-query {
+                    @media screen and (min-width: $first-query) and (max-width: $second-query - 1) {
+                        @content;
+                    }
+                }
+                @else {
+                    @media screen and (min-width: $second-query) and (max-width: $first-query - 1) {
+                        @content;
+                    }
+                }
+            }
+            @else {
+                $mapped__keys : map-keys($sizes__map);
+                @error "The given arguments are not valid you must choose from: #{$mapped__keys}";
+            }
+        }
+        @elseif type-of($breakpoint) == number {
+            // corrects ordering of variables for correct media query output
+            @if $breakpoint < $breakpoint__two {
+                @media screen and (min-width: $breakpoint) and (max-width: $breakpoint__two) {
+                    @content;
+                }
+            }
+            @else {
+                @media screen and (min-width: $breakpoint__two) and (max-width: $breakpoint) {
+                    @content;
+                }
+            }
+        }
+        @else {
+            $the-type: type-of($breakpoint);
+            @error "passed invalid arguement type #{$the-type}";
+        }
+    }
+    // if neither breakpoint is of the same type
+    @else {
+        @error "Inputted values are invlaid. Must be array variables or matching unit types";
+    }
+}
+
+
+$breakpoints : (
+    xsmall: 320px,
+    small: 480px,
+    xmedium: 640px,
+    medium: 768px,
+    large: 960px,
+    largest: 1080px,
+    xlargest: 1240px
+);
+
+$default-breakpoint: root;
+$current-breakpoint: $default-breakpoint;
+
+@mixin breakpoint($breakpoint) {
+      // Get the width from the keyword `$breakpoint`
+      // Or `null` if the keyword doesn't exist in `$breakpoints` map
+      $value: map-get($breakpoints, $breakpoint);
+
+  // If `$breakpoint` exists as a key in `$breakpoints`
+  @if $value != null {
+        // Update `$current-breakpoint`
+        $current-breakpoint: $breakpoint !global;
+
+    // Open a media query block
+    @media (min-width: $value) {
+      // Let the user dump content
+      @content;
+    }
+
+    // Then reset `$current-breakpoint` to `$default-breakpoint` (root)
+    $current-breakpoint: $default-breakpoint !global;
+  }
+
+  // If `$breakpoint` doesn't exist in `$breakpoints`,
+  // Warn the user and do nothing
+  @else {
+    @warn "Invalid breakpoint `#{$breakpoint}`.";
+  }
+}

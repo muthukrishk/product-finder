@@ -1,0 +1,100 @@
+@mixin heading($size, $family, $lineHeight, $color) {
+    font-size: $size;
+    font-family: $family;
+    line-height: $lineHeight;
+    color: $color;
+    font-weight: 600;
+}
+
+h1, .h1 {
+  @include heading(2.7rem, $FreshSans, 48px, $charcoal);
+  margin: 0 0 15px 0;
+  &.slant {
+    @include heading(3.6rem, $headingFontSlant, 60px, $charcoal);
+    font-weight: 100;
+  }
+  &.light {
+    color: $light;
+  }
+  &.green {
+    color: $mildGreen;
+  }
+  @media (max-width: 767px) {
+    font-size: 1.8rem;
+    line-height: 34px;
+    margin-bottom: 30px;
+  }
+}
+
+
+h2, .h2 {
+  @include heading(1.7rem, $FreshSans, 40px, $charcoal);
+  margin: 0 0 15px 0;
+  &.slant {
+    @include heading(2.1rem, $headingFontSlant, 36px, $charcoal);
+    font-weight: 100;
+  }
+  &.light {
+    color: $light;
+  }
+  &.green {
+    color: $mildGreen;
+  }
+}
+
+
+
+h3, .h3 {
+  @include heading(1.4rem, $headingFontMedium, 30px, $charcoal);
+    margin: 0 0 15px 0;
+  &.slant {
+    @include heading(1.6rem, $headingFontSlant, 26px, $charcoal);
+    font-weight: 100;
+  }
+  &.light {
+    color: $light;
+  }
+  &.green {
+    color: $mildGreen;
+  }
+}
+
+
+
+h4, .h4 {
+  @include heading(1.1rem, $headingFontMedium, 22px, $charcoal);
+    margin: 0 0 15px 0;
+  &.slant {
+    @include heading(1.1rem, $headingFontSlant, 22px, $charcoal);
+  }
+  &.green {
+    color: $mildGreen;
+  }
+  &.light {
+    color: $light;
+  }
+}
+
+
+
+h5, .h5 {
+  @include heading(0.9rem, $headingFontMedium, 20px, $charcoal);
+    margin: 0 0 15px 0;
+  &.light {
+    color: $light;
+  }
+  &.green {
+    color: $mildGreen;
+  }
+  &.slant {
+    @include heading(0.9rem, $headingFontSlant, 20px, $charcoal);
+  }
+}
+
+.dotted-spaced {
+  background-image: linear-gradient(to right, #333 40%, rgba(255, 255, 255, 0) 20%);
+  background-position: top;
+  background-size: 7px 1px;
+  background-repeat: repeat-x;
+  height: 30px;
+}

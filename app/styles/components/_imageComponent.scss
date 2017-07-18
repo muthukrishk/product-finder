@@ -1,0 +1,49 @@
+.image-round {
+  border: 2px solid $charcoal;
+  border-radius: 100%;
+  text-align: center;
+  padding: 3px;
+  &.no-border {
+    border: 0;
+    &.small {
+      img {
+        max-width: 100%;
+        margin-top: 0;
+      }
+    }
+  }
+  &.green-image {
+    border-color: $mildGreen
+  }
+  &.light-image {
+    border-color: $light;
+  }
+  &.small {
+    width: 32px;
+    height: 32px;
+    img {
+      max-width: 80%;
+      margin-top: 2px;
+    }
+  }
+  &.medium {
+    width: 48px;
+    height: 48px;
+    img {
+      max-width: 70%;
+      margin-top: 4px;
+    }
+    @media (max-width: 767px) {
+      width: 40px;
+      height: 40px;
+    }
+  }
+  &.large {
+    width: 64px;
+    height: 64px;
+    img {
+      max-width: 80%;
+      margin-top: 4px;
+    }
+  }
+}

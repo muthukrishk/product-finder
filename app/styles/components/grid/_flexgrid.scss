@@ -1,0 +1,95 @@
+// Main Core
+
+
+.flex {
+  display: flex;
+}
+
+// Create the row
+.row-flex{
+  @include make-row-flex();
+  &.reverse{
+    flex-direction: row-reverse;
+  }
+}
+
+// Create the columns
+.col-flex{
+  @include make-col-flex();
+  &.reverse{
+    flex-direction: column-reverse;
+  }
+}
+
+
+.items-start {
+    @include make-generate-vertical-aligment-other(start);
+  }
+.items-end {
+    @include make-generate-vertical-aligment-other(end);
+  }
+.items-center {
+    @include make-generate-vertical-aligment-other(center);
+  }
+.items-baseline {
+    @include make-generate-vertical-aligment-other(baseline);
+}
+.items-stretch {
+    @include make-generate-vertical-aligment-other(stretch);
+  }
+.contents-start {
+    @include make-generate-vertical-aligment-content(start);
+  }
+.contents-end {
+    @include make-generate-vertical-aligment-content(end);
+  }
+.contents-center {
+    @include make-generate-vertical-aligment-content(center);
+  }
+.contents-stretch {
+    @include make-generate-vertical-aligment-content(stretch);
+  }
+
+
+// Default grid
+@include make-grid-flex-columns();
+
+
+// Extra small grid
+//
+// Columns, offsets, pushes, and pulls for extra small devices like
+// smartphones.
+
+@include make-aligment(xs);
+@include make-grid-flex(xs);
+
+
+// Small grid
+//
+// Columns, offsets, pushes, and pulls for the small device range, from phones
+// to tablets.
+
+@media (min-width: $screen-sm-min) {
+  @include make-aligment(sm);
+  @include make-grid-flex(sm);
+}
+
+
+// Medium grid
+//
+// Columns, offsets, pushes, and pulls for the desktop device range.
+
+@media (min-width: $screen-md-min) {
+  @include make-aligment(md);
+  @include make-grid-flex(md);
+}
+
+
+// Large grid
+//
+// Columns, offsets, pushes, and pulls for the large desktop device range.
+
+@media (min-width: $screen-lg-min) {
+  @include make-aligment(lg);
+  @include make-grid-flex(lg);
+}

@@ -1,0 +1,124 @@
+.vList {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 15px;
+  p {
+    margin: 0;
+  }
+  .header {
+    font-family: $headingFontMedium;
+    font-size: 0.9rem;
+    font-weight: 500;
+  }
+  li {
+    padding: 7px 7px;
+    font-size: 0.9rem;
+  }
+  &.single {
+    li {
+      display: table;
+      width: 100%;
+      .header {
+        width: 50%;
+        float: left;
+      }
+      .meta {
+        width: 50%;
+        float: left;
+      }
+    }
+  }
+  &.bordered {
+    li {
+      border-top: 1px solid $darkerGrey;
+      padding: 15px 0;
+      &:first-child {
+        border-top: 0;
+      }
+    }
+  }
+  &.stripped {
+    li {
+      padding: 10px;
+    }
+    li:nth-child(odd) {
+      background: $grey;
+    }
+  }
+}
+
+.hList {
+  list-style: none;
+  padding-left: 0;
+    display: table;
+  li {
+    float: left;
+    margin-right: 15px;
+  }
+  @media (max-width: 767px) {
+    &.images {
+      display: flex;
+      li {
+        flex-grow: 1;
+        .image-round {
+          margin: auto;
+        }
+      }
+    }
+  }
+  @media (max-width: 768px) {
+    .image-round.medium {
+      width: 64px;
+      height: 64px;
+      margin-left: 10px;
+    }
+
+  }
+}
+
+ul {
+  &.list-circle {
+    list-style-type: circle;
+  }
+  &.list-square {
+    list-style-type: square;
+  }
+  &.list-number {
+    list-style-type: decimal;
+  }
+}
+
+.bullet-list {
+  padding-left: 2.5em;
+  display: block;
+  position: relative;
+  list-style: none;
+  li {
+    &:before {
+      content:'•';
+      font-family:Arial;
+      position:absolute;
+      margin-left:-1.2em;
+      margin-top:2px
+    }
+  }
+
+}
+
+
+.tick-list {
+  padding-left: 2.5em;
+  display: block;
+  position: relative;
+  list-style: none;
+  li {
+    &:before {
+      content:'\f00c';
+      font-family:FontAwesome;
+      position:absolute;
+      margin-left:-1.5em;
+      margin-top:0px
+    }
+  }
+
+}

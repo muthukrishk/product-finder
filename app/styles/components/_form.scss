@@ -1,0 +1,291 @@
+
+form {
+  legend {
+    font-family: $headingFontMedium;
+    color: $charcoal;
+    font-size: 1rem;
+    border-bottom: 0;
+  }
+  .more {
+    font-family: $headingFontMedium;
+    line-height: 34px;
+    font-size: 0.8rem;
+  }
+}
+.form-control {
+  border-radius: 5px;
+  background: #f5f5f5;
+  height: 50px;
+  font-size: 18px;
+  font-family: $headingFontMedium;
+  &:focus {
+    border-color: $charcoal;
+    box-shadow: 0 0 0 transparent;
+  }
+  &:hover {
+    border-color: $charcoal;
+    box-shadow: 0 0 0 transparent;
+  }
+  &.error {
+    border-color: $errorMessage;
+  }
+  &.has-error {
+    border-color: $errorMessage;
+  }
+}
+
+.form-group {
+  margin-bottom: 25px;
+  position: relative;
+  .passwordError , .dobError{
+    display: none;
+  }
+  &.appendingInput {
+    margin: 0;
+    .floated-input {
+      position: relative;
+    }
+    .iconed, .floated-input {
+      margin: 0 0 20px 0 ;
+      &:first-child {
+          margin: 0 0 20px 0;
+      }
+      &:last-child {
+          margin: 0 0 20px 0;
+      }
+    }
+    .text-small {
+      clear: both;
+      display: flow-root;
+    }
+  }
+  &.checkbox {
+    margin-bottom: 0;
+  }
+  label {
+    margin-bottom: 10px;
+    font-family: $headingFontMedium;
+    font-weight: 500;
+    color: $charcoal;
+  }
+  .text-error, label.has-error {
+    color: $errorMessage;
+    font-size: 0.7rem;
+    font-weight: 400;
+    margin-bottom: 0;
+    position: absolute;
+    @media (max-width: 768px) {
+      position: initial;
+    }
+  }
+  .iconed {
+    position: relative;
+  }
+  .icon {
+    position: absolute;
+    font-size: 1.5rem;
+    right: 10px;
+    top: 7px;
+    color: $mildGreen;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
+
+.selectGroup {
+  position: relative;
+  .select-side {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    color: #999;
+  }
+  select {
+    -webkit-appearance: none;
+    appearance: none;
+    padding-right: 30px;
+  }
+}
+
+
+.form-check-label {
+    margin-bottom: 10px;
+    font-family: $headingFontMedium;
+    font-weight: 500;
+    color: $charcoal;
+  &:hover {
+    cursor: pointer;
+  }
+  .text {
+    vertical-align: sub;
+  }
+  input[type="checkbox"] {
+  	width: 16px;
+  	height: 16px;
+    position: relative;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    margin-right: 7px;
+    vertical-align: text-top;
+    margin-top: 4px;
+    &:hover {
+      &:after {
+        background: $charcoalLight;
+        border-width: 0;
+      }
+      &:checked {
+        &:after {
+          border-width: 2px;
+        }
+      }
+    }
+  	&:checked {
+  		background-color: $mildGreen;
+    	border-color: $mildGreen;
+    	&:after {
+  			background-color: $mildGreen;
+      	border-color: $mildGreen;
+        color: $light;
+        content: "\f00c";
+        font-family: FontAwesome;
+        font-size: 0.9rem;
+        top: 0px;
+        position: absolute;
+  		}
+  	}
+    &:after {
+      content: "";
+      display: block;
+      width: 17px;
+      height: 17px;
+      margin-right: 5px;
+      border: 2px solid $mildGreen;
+      transition: 240ms;
+    }
+    &:focus {
+      outline: none;
+    }
+  }
+
+  input[type=radio] {
+    position: relative;
+    margin-top: 4px;
+    border: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    margin-right: 7px;
+    vertical-align: text-top;
+    &:focus {
+      outline: 0;
+    }
+    &:after {
+      content: "";
+      display: block;
+      width: 24px;
+      height: 24px;
+      border: 2px solid $mildGreen;
+      border-radius: 100%;
+      transition: 240ms;
+    }
+    &:hover {
+      &:after {
+        background: $charcoalLight;
+        border-width: 0;
+      }
+      &:checked {
+        &:after {
+          border-width: 2px;
+        }
+      }
+    }
+    &:checked {
+  		background-color: $mildGreen;
+    	border-color: $mildGreen;
+      border-radius: 100%;
+    	&:after {
+  			background-color: $mildGreen;
+      	border-color: $mildGreen;
+        color: $light;
+        content: "\f00c";
+        content: "\f00c";
+        font-family: FontAwesome;
+        font-size: 1rem;
+        line-height: 20px;
+        text-align: center;
+  		}
+  	}
+  }
+}
+
+.form-actions {
+  margin: 40px 0;
+  .btn {
+    margin-right: 10px;
+  }
+}
+
+.floated-input {
+  .form-control {
+    height: 44px;
+    font-size: 16px;
+    padding: 16px 34px 0 12px;
+  }
+  .floating-label {
+    position: absolute;
+    pointer-events: none;
+    left: 10px;
+    top: 10px;
+    transition: 0.2s ease all;
+    color: #969696;
+    font-size: 1rem;
+  }
+  input:focus ~ .floating-label,input:focus:valid ~ .floating-label,  input.ng-not-empty ~ .floating-label{
+      top: 0px;
+      left: 10px;
+      font-size: 0.7rem;
+      color: #666;
+    }
+    &.has-error {
+      .floating-label {
+        top: 0px;
+        left: 10px;
+        font-size: 0.7rem;
+        color: #666;
+      }
+    }
+}
+
+.tooltip {
+z-index: 1000 !important;
+  .tooltip-inner {
+    z-index: 2;
+    background: $light;
+    font-size: 0.8rem;
+    padding: 10px;
+    border: 1px solid #aaa;
+    box-shadow: 0 0 4px #ccc;
+    color: #444;
+    border-radius: 0;
+    text-align: left;
+  }
+  .tooltip-arrow {
+    display: none;
+  }
+}
+
+.dob {
+  input::-webkit-input-placeholder { color:transparent; }
+  input:-moz-placeholder { color:transparent; } /* FF 4-18 */
+  input::-moz-placeholder { color:transparent; } /* FF 19+ */
+  input:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+  input:focus::-webkit-input-placeholder { color:red; }
+input:focus:-moz-placeholder { color:transparent; } /* FF 4-18 */
+input:focus::-moz-placeholder { color:transparent; } /* FF 19+ */
+input:focus:-ms-input-placeholder { color:transparent; } /* IE 10+ */
+}
