@@ -15,7 +15,6 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'autocomplete',
     'ngTagsInput'
   ]);
 
