@@ -30,6 +30,7 @@
   }
 .items-center {
     @include make-generate-vertical-aligment-other(center);
+    display: flex;
   }
 .items-baseline {
     @include make-generate-vertical-aligment-other(baseline);
