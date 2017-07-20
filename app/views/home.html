@@ -7,7 +7,7 @@
 		<h1 class="light">Find a Product in Store</h1>
 		<div class="iconed-auto-completed">
 			<tags-input ng-model="selectedProduct"
-              display-property="name"
+              display-property="description"
               placeholder="Search For Product"
               replace-spaces-with-dashes="false"
               max-tags="1"
@@ -24,14 +24,14 @@
 	  <script type="text/ng-template" id="tag-template">
     <div class="tag-template">
       <div class="right-panel">
-        <span>{{data.name}}</span>
+        <span>{{data.description}}</span>
         <a class="remove-button" ng-click="$removeTag()">&times;</a>
       </div>
     </div>
   </script>
   <script type="text/ng-template" id="autocomplete-template">
     <div class="autocomplete-template">
-      <div>{{data.name}}</div>
+      <div>{{data.description}}</div>
     </div>
   </script>
 </div>

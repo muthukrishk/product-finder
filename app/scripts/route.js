@@ -1,7 +1,7 @@
 (function () {
 'use strict';
-	angular.module('wowProductFinderApp').config(['$httpProvider', '$provide', '$locationProvider', '$compileProvider', '$routeProvider', function ($httpProvide, $provide, $locationProvider, $compileProvider, $routeProvider) {
-
+	angular.module('wowProductFinderApp').config(['$httpProvider', '$provide', '$locationProvider', '$compileProvider', '$routeProvider', function ($httpProvider, $provide, $locationProvider, $compileProvider, $routeProvider) {
+    $httpProvider.interceptors.push('globalHttpInterceptor');
 		$routeProvider
       .when('/', {
         templateUrl: 'views/home.html'

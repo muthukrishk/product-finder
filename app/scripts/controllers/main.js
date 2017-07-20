@@ -8,27 +8,30 @@
  * Controller of the wowProductFinderApp
  */
 angular.module('wowProductFinderApp')
-  .controller('MainCtrl', function ($scope, $location) {
-    $scope.selectedProduct = [
+  .controller('MainCtrl', function ($scope, $location, searchFactory) {
 
-    ];
+    $scope.selectedProduct = [];
 
-    $scope.loadProducts = function() {
-    	$scope.products = [
-    	{
-    		name: "Butter"
-    	},
-    	{
-    		name: "Jam"
-    	},
-    	{
-    		name: "Cheese"
-    	},
-    ];
-    return $scope.products;
+    $scope.loadProducts = function(term) {
+
+      var data = {};
+      data.q = term;
+      data.mode = 'online';
+      data.type = 'products'
+      return searchFactory.search(data).then(function (response){
+        $scope.searching = false;
+        console.log(response.products);
+        var products = response.products;
+        if(products) {
+          return products.filter(function(product) {
+            return product;
+          });
+        }
+      });
+
     };
 
     $scope.goProductlisting = function() {
-        $location.path('/product-list/' + 1);
+      $location.path('/product-list/' + 1);
     };
   });
