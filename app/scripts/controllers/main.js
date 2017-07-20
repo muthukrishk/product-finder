@@ -32,6 +32,7 @@ angular.module('wowProductFinderApp')
     };
 
     $scope.goProductlisting = function() {
-      $location.path('/product-list/' + 1);
+      console.log($scope.selectedProduct);
+      $location.path('/product-list/' + $scope.selectedProduct[0].description);
     };
   });
