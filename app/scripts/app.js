@@ -18,3 +18,9 @@ angular
     'autocomplete',
     'ngTagsInput'
   ]);
+
+
+ angular.module('wowProductFinderApp').config(['$locationProvider',  function ($locationProvider) {
+   //$locationProvider.html5Mode(true);
+   $locationProvider.hashPrefix('');
+ }]);

@@ -8,7 +8,7 @@
  * Controller of the wowProductFinderApp
  */
 angular.module('wowProductFinderApp')
-  .controller('MainCtrl', function ($scope) {
+  .controller('MainCtrl', function ($scope, $location) {
     $scope.selectedProduct = [
 
     ];
@@ -26,5 +26,9 @@ angular.module('wowProductFinderApp')
     	},
     ];
     return $scope.products;
+    };
+
+    $scope.goProductlisting = function() {
+        $location.path('/product-list/' + 1);
     };
   });

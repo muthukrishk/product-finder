@@ -11,7 +11,7 @@
               placeholder="Search For Product"
               replace-spaces-with-dashes="false"
               max-tags="1"
-              template="tag-template" add-from-autocomplete-only="true" class="form-control" restrict-to-max-tags ng-class="{'has-tags': product.length}">
+              template="tag-template" add-from-autocomplete-only="true" class="form-control" restrict-to-max-tags ng-class="{'has-tags': product.length}" on-tag-added="goProductlisting()">
        <span class="icon"><i class="fa fa-search"></i></span>
       <auto-complete source="loadProducts($query)"
                      min-length="2"
