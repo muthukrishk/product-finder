@@ -284,6 +284,15 @@ tags-input {
 		    vertical-align: bottom;
 			}
 		}
+		.map-marker {
+			padding: 15px;
+    	display: block;
+    	font-weight: 500;
+    	text-align: right;
+    	&:hover {
+    		text-decoration: none;
+    	}
+		}
 		.border-right {
     	border-right: 1px dashed #ccc;
 		}
