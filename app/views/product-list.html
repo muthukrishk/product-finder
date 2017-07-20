@@ -1,0 +1,66 @@
+<div class="fixed-form">
+  <div class="container">
+    <span class="back-arrow">
+      <i class="fa fa-angle-left" aria-hidden="true"></i>
+    </span>
+    <div class="iconed-auto-completed">
+      <tags-input ng-model="selectedProduct"
+              display-property="name"
+              placeholder="Search For Product"
+              replace-spaces-with-dashes="false"
+              max-tags="1"
+              template="tag-template" add-from-autocomplete-only="true" class="form-control" restrict-to-max-tags ng-class="{'has-tags': product.length}">
+       <span class="icon"><i class="fa fa-search"></i></span>
+      <auto-complete source="loadProducts($query)"
+                     min-length="2"
+                     max-results-to-show="15"
+                     template="autocomplete-template" class="autoComplete"></auto-complete>
+      </tags-input>
+    </div>
+
+  </div>
+</div>
+
+<div class="product-listing">
+  <h1 class="light">24 results for 'Butter Chicken'</h1>
+
+  <div class="table-lister">
+    <div class="lister-heading">
+      <div class="row">
+        <div class="col-sm-6">
+          <h4 class="light">Pantry(17)</h4>
+        </div>
+        <div class="col-sm-3">
+          <h5 class="light">Aisle</h5>
+        </div>
+        <div class="col-sm-3">
+        </div>
+      </div>
+    </div>
+  </div>
+  <ul class="item-list">
+    <li class="clearfix">
+      <div class="row">
+        <div class="col-sm-6">
+          <div class="media">
+            <div class="media-left">
+              <div class="image-round medium">
+                <img class="image" src="images/car.png">
+              </div>
+            </div>
+            <div class="media-body">
+              <h4>
+                My Payment Details
+              </h4>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-3">
+          <h5 class="light">Aisle</h5>
+        </div>
+        <div class="col-sm-3">
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

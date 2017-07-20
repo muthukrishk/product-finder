@@ -6,14 +6,8 @@
       .when('/', {
         templateUrl: 'views/home.html'
       })
-      .when('/home', {
-        templateUrl: 'views/home.html'
-      })
-			.when('/productList', {
+      .when('/product-list/:id', {
         templateUrl: 'views/product-list.html'
-      })
-			.when('/productDetail', {
-        templateUrl: 'views/product-detail.html'
       })
       .otherwise({
         redirectTo: '/'
