@@ -207,6 +207,7 @@ tags-input {
 	width: 100%;
 	left: 0;
 	padding: 25px;
+	z-index: 11;
 	.back-arrow {
 		position: absolute;
    	color: $light;
@@ -261,9 +262,20 @@ tags-input {
 
 .item-list {
 	padding: 0;
+	list-style: none;
 	li {
 		margin: 7px 0;
 		background: $light;
 		position: relative;
+		padding: 10px;
+		.media-body {
+			vertical-align: middle;
+			h5 {
+				margin-bottom: 0;
+			}
+		}
+		.border-right {
+    	border-right: 1px dashed #ccc;
+		}
 	}
 }
