@@ -2,18 +2,25 @@
 
 /**
  * @ngdoc function
- * @name wowProductFinderApp.controller:MainCtrl
+ * @name wowProductFinderApp.controller:AboutCtrl
  * @description
- * # MainCtrl
+ * # AboutCtrl
  * Controller of the wowProductFinderApp
  */
 angular.module('wowProductFinderApp')
-  .controller('MainCtrl', function ($scope, $location, searchFactory) {
+  .controller('SearchListinCtrl', function ($routeParams, $scope, searchFactory, $location) {
 
-    $scope.selectedProduct = [];
+  	$scope.init = function() {
+  		$scope.selectedProduct = [];
 
+  		$scope.term = $routeParams.term;
+  		var paramsObj = {};
+  		paramsObj.result = $routeParams.term;
+  		$scope.selectedProduct.push(paramsObj);
+  		console.log($scope.selectedProduct);
+  	};
 
-     $scope.loadSuggestions = function(term) {
+  	$scope.loadSuggestions = function(term) {
       var data = {};
       data.q = term;
       return searchFactory.suggestion(data).then(function (response){
@@ -32,4 +39,7 @@ angular.module('wowProductFinderApp')
       console.log($scope.selectedProduct);
       $location.path('/product-list/' + $scope.selectedProduct[0].result);
     };
+
+  	$scope.init();
+    
   });

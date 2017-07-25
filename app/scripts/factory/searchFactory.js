@@ -5,7 +5,8 @@ angular.module('wowProductFinderApp')
 
   var baseUrl = api_url;
   var urls = {
-    search: 'search'
+    search: 'search',
+    autocomplete: 'autocomplete'
 
   };
 
@@ -14,6 +15,10 @@ angular.module('wowProductFinderApp')
 
   searchFactory.search = function (data) {
     return HttpService.process(baseUrl+urls.search,'GET',data);
+  };
+
+  searchFactory.suggestion = function (data) {
+    return HttpService.process(baseUrl+urls.autocomplete,'GET',data);
   };
 
 

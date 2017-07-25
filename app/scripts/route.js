@@ -4,10 +4,12 @@
     $httpProvider.interceptors.push('globalHttpInterceptor');
 		$routeProvider
       .when('/', {
-        templateUrl: 'views/home.html'
+        templateUrl: 'views/home.html',
+        controller: 'MainCtrl'
       })
-      .when('/product-list/:id', {
-        templateUrl: 'views/product-list.html'
+      .when('/product-list/:term', {
+        templateUrl: 'views/product-list.html',
+        controller: 'SearchListinCtrl'
       })
       .otherwise({
         redirectTo: '/'

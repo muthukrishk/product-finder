@@ -140,11 +140,14 @@ tags-input {
 	 		padding: 6px 12px 12px 12px;
 	 		background: none;
 	 		border: 0;
+	 		.tag-template {
+	 			color: $light;
+	 		}
 	 		.remove-button {
 	 			font: normal 3rem $FreshSans;
 		    float: right;
 		    top: 0;
-		    color: #999;
+		    color: #ccc;
 		    right: 0;
 		    line-height: 30px;
 		    &:hover {
