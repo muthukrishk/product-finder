@@ -23,5 +23,6 @@ angular.module('wowProductFinderApp')
 
 
 
+
   return searchFactory;
 });

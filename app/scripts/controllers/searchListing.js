@@ -8,7 +8,7 @@
  * Controller of the wowProductFinderApp
  */
 angular.module('wowProductFinderApp')
-  .controller('SearchListinCtrl', function ($routeParams, $scope, searchFactory, $location) {
+  .controller('SearchListinCtrl', function ($routeParams, $scope, searchFactory, $location, $http) {
 
   	$scope.init = function() {
   		$scope.selectedProduct = [];
@@ -17,7 +17,7 @@ angular.module('wowProductFinderApp')
   		var paramsObj = {};
   		paramsObj.result = $routeParams.term;
   		$scope.selectedProduct.push(paramsObj);
-  		console.log($scope.selectedProduct);
+  		$scope.LoadProducts();
   	};
 
   	$scope.loadSuggestions = function(term) {
@@ -40,6 +40,18 @@ angular.module('wowProductFinderApp')
       $location.path('/product-list/' + $scope.selectedProduct[0].result);
     };
 
+    $scope.LoadProducts = function() {
+      $http({
+          method: 'GET',
+          url: 'scripts/factory/product-list.json'
+       }).then(function (response){
+        $scope.allProducts = response.data.products;
+        $scope.productsList = _.groupBy(response.data.products, 'instoreaisleid');
+       },function (error){
+
+       });
+    };
+
   	$scope.init();
-    
+
   });

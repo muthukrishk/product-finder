@@ -22,252 +22,50 @@
 </div>
 
 <div class="product-listing">
-  <h1 class="light">24 results for '{{term}}'</h1>
+  <h1 class="light">{{allProducts.length}} results for '{{term}}'</h1>
 
-<div class="table-lister">
-  <div class="lister-heading">
-    <div class="row">
-      <div class="col-sm-6">
-        <h4 class="light">Pantry(17)</h4>
-      </div>
-      <div class="col-sm-3">
-        <h5 class="light">Aisle</h5>
-      </div>
-      <div class="col-sm-3">
+  <div class="table-lister" ng-repeat="(key, products) in productsList">
+    <div class="lister-heading">
+      <div class="row">
+        <div class="col-sm-6">
+          <h4 class="light">Products</h4>
+        </div>
+        <div class="col-sm-3">
+          <h5 class="light">Aisle</h5>
+        </div>
+        <div class="col-sm-3">
+        </div>
       </div>
     </div>
-  </div>
-  <ul class="item-list">
-    <li class="clearfix">
-      <div class="row row-flex ">
-        <div class="col-sm-6 border-right">
-          <div class="media">
-            <div class="media-left">
-              <div class="image large">
-                <img class="image" src="images/result1.jpg">
+    <ul class="item-list">
+      <li class="clearfix" ng-repeat="product in products">
+        <div class="row row-flex ">
+          <div class="col-sm-6 border-right">
+            <div class="media">
+              <div class="media-left">
+                <div class="image large">
+                  <img class="image" ng-src="{{product.images.thumbnail}}">
+                </div>
+              </div>
+              <div class="media-body">
+                <h5>
+                  {{product.description}}
+                </h5>
               </div>
             </div>
-            <div class="media-body">
-              <h5>
-                Taylors Simmer Sauce Kashmiri Butter Chicken 485g
-              </h5>
-            </div>
           </div>
-        </div>
-        <div class="col-sm-3 border-right">
-          <h5 class="aisle-number">14</h5>
-        </div>
-        <div class="col-sm-3">
-          <a href="" class="map-marker">
-              Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
-            </a>
-        </div>
-      </div>
-    </li>
-    <li class="clearfix">
-      <div class="row row-flex  ">
-        <div class="col-sm-6 border-right">
-          <div class="media">
-            <div class="media-left">
-              <div class="image large">
-                <img class="image" src="images/result1.jpg">
-              </div>
-            </div>
-            <div class="media-body">
-              <h5>
-                Taylors Simmer Sauce Kashmiri Butter Chicken 485g
-              </h5>
-            </div>
+          <div class="col-sm-3 border-right">
+            <h5 class="aisle-number">{{key}}</h5>
           </div>
-        </div>
-        <div class="col-sm-3 border-right">
-          <h5 class="aisle-number">14</h5>
-        </div>
-        <div class="col-sm-3">
-          <a href="" class="map-marker">
-              Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
-            </a>
-        </div>
-      </div>
-    </li>
-    <li class="clearfix">
-      <div class="row row-flex ">
-        <div class="col-sm-6 border-right">
-          <div class="media">
-            <div class="media-left">
-              <div class="image large">
-                <img class="image" src="images/result1.jpg">
-              </div>
-            </div>
-            <div class="media-body">
-              <h5>
-                Taylors Simmer Sauce Kashmiri Butter Chicken 485g
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 border-right">
-          <h5 class="aisle-number">14  <span class="text-muted">(Middle of the aisle)</span></h5>
-        </div>
-        <div class="col-sm-3">
-          <a href="" class="map-marker">
-              Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
-            </a>
-        </div>
-      </div>
-    </li>
-    <li class="clearfix">
-      <div class="row row-flex  ">
-        <div class="col-sm-6 border-right">
-          <div class="media">
-            <div class="media-left">
-              <div class="image large">
-                <img class="image" src="images/result1.jpg">
-              </div>
-            </div>
-            <div class="media-body">
-              <h5>
-                Taylors Simmer Sauce Kashmiri Butter Chicken 485g
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 border-right">
-          <h5 class="aisle-number">Deli</h5>
-        </div>
-        <div class="col-sm-3">
-          <p class="right">
+          <div class="col-sm-3">
             <a href="" class="map-marker">
-              Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
-            </a>
-          </p>
+                Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
+              </a>
+          </div>
         </div>
-      </div>
-    </li>
-  </ul>
-</div>
-
-<div class="table-lister">
-  <div class="lister-heading">
-    <div class="row">
-      <div class="col-sm-6">
-        <h4 class="light">Pantry(17)</h4>
-      </div>
-      <div class="col-sm-3">
-        <h5 class="light">Aisle</h5>
-      </div>
-      <div class="col-sm-3">
-      </div>
-    </div>
+      </li>
+    </ul>
   </div>
-  <ul class="item-list">
-    <li class="clearfix">
-      <div class="row row-flex ">
-        <div class="col-sm-6 border-right">
-          <div class="media">
-            <div class="media-left">
-              <div class="image large">
-                <img class="image" src="images/result1.jpg">
-              </div>
-            </div>
-            <div class="media-body">
-              <h5>
-                Taylors Simmer Sauce Kashmiri Butter Chicken 485g
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 border-right">
-          <h5 class="aisle-number">14</h5>
-        </div>
-        <div class="col-sm-3">
-          <a href="" class="map-marker">
-              Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
-            </a>
-        </div>
-      </div>
-    </li>
-    <li class="clearfix">
-      <div class="row row-flex  ">
-        <div class="col-sm-6 border-right">
-          <div class="media">
-            <div class="media-left">
-              <div class="image large">
-                <img class="image" src="images/result1.jpg">
-              </div>
-            </div>
-            <div class="media-body">
-              <h5>
-                Taylors Simmer Sauce Kashmiri Butter Chicken 485g
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3">
-          <h5 class="aisle-number">14</h5>
-        </div>
-        <div class="col-sm-3">
-          <a href="" class="map-marker">
-              Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
-            </a>
-        </div>
-      </div>
-    </li>
-    <li class="clearfix">
-      <div class="row row-flex ">
-        <div class="col-sm-6 border-right">
-          <div class="media">
-            <div class="media-left">
-              <div class="image large">
-                <img class="image" src="images/result1.jpg">
-              </div>
-            </div>
-            <div class="media-body">
-              <h5>
-                Taylors Simmer Sauce Kashmiri Butter Chicken 485g
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 border-right">
-          <h5 class="aisle-number">14  <span class="text-muted">(Middle of the aisle)</span></h5>
-        </div>
-        <div class="col-sm-3">
-          <a href="" class="map-marker">
-              Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
-            </a>
-        </div>
-      </div>
-    </li>
-    <li class="clearfix">
-      <div class="row row-flex  ">
-        <div class="col-sm-6 border-right">
-          <div class="media">
-            <div class="media-left">
-              <div class="image large">
-                <img class="image" src="images/result1.jpg">
-              </div>
-            </div>
-            <div class="media-body">
-              <h5>
-                Taylors Simmer Sauce Kashmiri Butter Chicken 485g
-              </h5>
-            </div>
-          </div>
-        </div>
-        <div class="col-sm-3 border-right">
-          <h5 class="aisle-number">Deli</h5>
-        </div>
-        <div class="col-sm-3">
-          <p class="right">
-            <a href="" class="map-marker">
-              Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
-            </a>
-          </p>
-        </div>
-      </div>
-    </li>
-  </ul>
    <script type="text/ng-template" id="tag-template">
     <div class="tag-template">
       <div class="right-panel">
