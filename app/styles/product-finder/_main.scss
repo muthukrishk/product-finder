@@ -103,6 +103,7 @@ tags-input {
 	 		height: 95%;
 	 		color: #555;
 	 		font-weight: 500;
+	 		opacity: 0.5;
 	 		&:focus {
 	 			outline: 0;
 	 			border: 0;
@@ -123,7 +124,8 @@ tags-input {
 	 			font: normal 3rem $FreshSans;
 		    float: right;
 		    top: 0;
-		    color: #ccc;
+		    color: $light;
+		    opacity: 0.5;
 		    right: 0;
 		    line-height: 30px;
 		    &:hover {
@@ -140,19 +142,20 @@ tags-input {
 			max-height: 150px;
 		}
 		.suggestion-item {
-			padding: 12px 10px;
-    	font-size: 1.0rem;
-    	font-family: $FreshSans;
-    	font-weight: 500;
-    	background: #f2f2f2;
-    	color: $mildGreen;
-			&.selected {
-				background: $mildGreen;
-				color: $light;
+			padding: 15px 10px;
+    		font-size: 1.0rem;
+    		font-family: $FreshSans;
+    		font-weight: 500;
+    		background: #f2f2f2;
+    		border-bottom: 1px solid #ccc;
+    		color: $mildGreen;
+				&.selected {
+					background: $mildGreen;
+					color: $light;
+				}
 			}
 		}
 	}
-}
 
 .autoComplete {
 	margin-top: -5px;
@@ -160,10 +163,10 @@ tags-input {
 	.autocomplete  {
 		margin-top: -5px;
 		box-shadow: inset 0 5px 6px rgba(0, 0, 0, 0.2);
-    border-radius: 0 0 5px 5px;
-    border: 1px solid $light;
-    padding-top: 10px;
-    padding: 10px 0 2px 0;
+    	border-radius: 0 0 5px 5px;
+    	border: 1px solid $light;
+    	padding-top: 10px;
+    	padding: 10px 0 2px 0;  	
 	}
 	.suggestion-list {
 		border: 0;
@@ -176,12 +179,12 @@ tags-input {
 	left: 0;
 	padding: 25px;
 	z-index: 11;
-	.back-arrow {
+	.home-icon {
 		position: absolute;
    	color: $light;
     left: 20px;
-    font-size: 3.5rem;
-    top: -5px;
+    font-size: 2.5rem;
+    top: 5px;
     a {
     	color: $light;
     }
