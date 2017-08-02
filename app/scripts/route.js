@@ -11,6 +11,10 @@
         templateUrl: 'views/product-list.html',
         controller: 'SearchListinCtrl'
       })
+      .when('/product-list-filter/:term/:aisleNumber', {
+        templateUrl: 'views/product-list-filter.html',
+        controller: 'SearchListinFilterCtrl'
+      })
       .otherwise({
         redirectTo: '/'
       });

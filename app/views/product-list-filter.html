@@ -22,9 +22,9 @@
 </div>
 
 <div class="product-listing">
-  <h1 class="light">{{allProducts.length}} results for '{{term}}'</h1>
+  <h2 class="light">{{productsList.length}} results for '{{term}}' in Aisle {{aisleNumber}}</h2>
 
-  <div class="table-lister" ng-repeat="(key, products) in productsList">
+  <div class="table-lister">
     <div class="lister-heading">
       <div class="row">
         <div class="col-sm-6">
@@ -33,13 +33,13 @@
         <div class="col-sm-3">
           <h5 class="light">Aisle</h5>
         </div>
-        <div class="col-sm-3" ng-if="products.length > 3">
-          <a href="" class="allLink" ng-click="drillDownAisle(key)">View all</a>
+        <div class="col-sm-3">
+
         </div>
       </div>
     </div>
     <ul class="item-list">
-      <li class="clearfix" ng-repeat="product in products | limitTo: 3" >
+      <li class="clearfix" ng-repeat="product in productsList" >
         <div class="row row-flex ">
           <div class="col-sm-6 border-right">
             <div class="media">
@@ -56,7 +56,7 @@
             </div>
           </div>
           <div class="col-sm-3 border-right">
-            <h5 class="aisle-number">{{key}}</h5>
+            <h5 class="aisle-number">{{product.instoreaisleid}}</h5>
           </div>
           <div class="col-sm-3">
             <a href="" class="map-marker">

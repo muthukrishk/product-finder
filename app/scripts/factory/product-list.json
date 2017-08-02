@@ -49,6 +49,102 @@
             "details": "https://test.mobile-api.woolworths.com.au/wow/v2/products/000000000000513393/details?store=1294"
         },
         {
+            "name": "000000000000513393",
+            "article": "000000000000513393",
+            "description": "Cadbury Caramel Cake Bar 10pk",
+            "instoreaisleid": 5,
+            "instoreaisleside": "L",
+            "instoreaislebay": "26",
+            "ecfcategory1": "Baking & Cooking",
+            "ecfcategory2": "Dried Fruit",
+            "ecfcategory3": "Peaches",
+            "images": {
+                "360": [
+                    "https://wowpmediaaae.azureedge.net/content/wowproductimages/large/513393.jpg"
+                ],
+                "thumbnail": "https://wowpmediaaae.azureedge.net/content/wowproductimages/large/513393.jpg",
+                "details": [
+                    "https://wowpmediaaae.azureedge.net/content/wowproductimages/large/513393.jpg"
+                ]
+            },
+            "size": 10,
+            "measure": " ",
+            "is": {
+                "liquor": false,
+                "ranged": true,
+                "weighed": false,
+                "weightonline": false,
+                "tobacco": false,
+                "everydaypricecut": false
+            },
+            "instorelocation": "Find in Aisle 2",
+            "altproducts": "https://test.mobile-api.woolworths.com.au/wow/v2/products/000000000000513397?store=1294",
+            "instoreprice": {
+                "cupuom": "EA",
+                "cupsize": 1,
+                "uom": "EA",
+                "pricegst": 5,
+                "cupprice": 0.5
+            },
+            "stockqty": 99,
+            "defaultqty": 1,
+            "incrementalquantity": 1,
+            "supplementaryinfo": {
+                "badges": [
+                    "https://yt3.ggpht.com/-L4ADKhEJMzI/AAAAAAAAAAI/AAAAAAAAAAA/lfCQCltD6zQ/s88-c-k-no/photo.jpg"
+                ]
+            },
+            "details": "https://test.mobile-api.woolworths.com.au/wow/v2/products/000000000000513393/details?store=1294"
+        },
+        {
+            "name": "000000000000513393",
+            "article": "000000000000513393",
+            "description": "Cadbury Caramel Cake Bar 10pk",
+            "instoreaisleid": 5,
+            "instoreaisleside": "L",
+            "instoreaislebay": "26",
+            "ecfcategory1": "Baking & Cooking",
+            "ecfcategory2": "Dried Fruit",
+            "ecfcategory3": "Peaches",
+            "images": {
+                "360": [
+                    "https://wowpmediaaae.azureedge.net/content/wowproductimages/large/513393.jpg"
+                ],
+                "thumbnail": "https://wowpmediaaae.azureedge.net/content/wowproductimages/large/513393.jpg",
+                "details": [
+                    "https://wowpmediaaae.azureedge.net/content/wowproductimages/large/513393.jpg"
+                ]
+            },
+            "size": 10,
+            "measure": " ",
+            "is": {
+                "liquor": false,
+                "ranged": true,
+                "weighed": false,
+                "weightonline": false,
+                "tobacco": false,
+                "everydaypricecut": false
+            },
+            "instorelocation": "Find in Aisle 2",
+            "altproducts": "https://test.mobile-api.woolworths.com.au/wow/v2/products/000000000000513397?store=1294",
+            "instoreprice": {
+                "cupuom": "EA",
+                "cupsize": 1,
+                "uom": "EA",
+                "pricegst": 5,
+                "cupprice": 0.5
+            },
+            "stockqty": 99,
+            "defaultqty": 1,
+            "incrementalquantity": 1,
+            "supplementaryinfo": {
+                "badges": [
+                    "https://yt3.ggpht.com/-L4ADKhEJMzI/AAAAAAAAAAI/AAAAAAAAAAA/lfCQCltD6zQ/s88-c-k-no/photo.jpg"
+                ]
+            },
+            "details": "https://test.mobile-api.woolworths.com.au/wow/v2/products/000000000000513393/details?store=1294"
+        },
+        {
             "name": "000000000000333559",
             "article": "000000000000333559",
             "description": "Cadbury Caramello Easter Casket 140g",
