@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name wowProductFinderApp.controller:AboutCtrl
+ * @name wowProductFinderApp.controller:SearchListinFilterCtrl
  * @description
- * # AboutCtrl
+ * # SearchListinFilterCtrl
  * Controller of the wowProductFinderApp
  */
 angular.module('wowProductFinderApp')
@@ -35,6 +35,11 @@ angular.module('wowProductFinderApp')
       });
 
     };
+    
+    $scope.goProductlisting = function() {
+        console.log($scope.selectedProduct);
+        $location.path('/product-list/' + $scope.selectedProduct[0].result);
+     };
 
     $scope.LoadProducts = function() {
       $http({

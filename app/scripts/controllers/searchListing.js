@@ -2,9 +2,9 @@
 
 /**
  * @ngdoc function
- * @name wowProductFinderApp.controller:AboutCtrl
+ * @name wowProductFinderApp.controller:SearchListinCtrl
  * @description
- * # AboutCtrl
+ * # SearchListinCtrl
  * Controller of the wowProductFinderApp
  */
 angular.module('wowProductFinderApp')
