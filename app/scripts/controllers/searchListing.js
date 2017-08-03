@@ -46,7 +46,7 @@ angular.module('wowProductFinderApp')
          data.store='1294';
          data.type='products';
 
-         return searchFactory.search(data).then(function (response){            
+         searchFactory.search(data).then(function (response){            
              $scope.allProducts = response.products;
              $scope.productsList = _.groupBy(response.products, 'instoreaisleid');
          });
