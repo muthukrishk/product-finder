@@ -5,8 +5,8 @@ angular.module('wowProductFinderApp')
 
   var baseUrl = api_url;
   var urls = {
-    search: 'search',
-    autocomplete: 'autocomplete'
+    search: 'v3/search',
+    autocomplete: 'v2/autocomplete'
 
   };
 

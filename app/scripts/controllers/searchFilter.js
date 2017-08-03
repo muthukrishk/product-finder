@@ -18,7 +18,7 @@ angular.module('wowProductFinderApp')
   		var paramsObj = {};
   		paramsObj.result = $routeParams.term;
   		$scope.selectedProduct.push(paramsObj);
-  		$scope.LoadProducts();
+  		$scope.LoadProducts($scope.term);
   	};
 
   	$scope.loadSuggestions = function(term) {
@@ -36,19 +36,19 @@ angular.module('wowProductFinderApp')
 
     };
 
-    $scope.LoadProducts = function() {
-      $http({
-          method: 'GET',
-          url: 'scripts/factory/product-list.json'
-       }).then(function (response){
-        console.log(response);
-        $scope.allProducts = response.data.products;
-        var aisleProducts = _.filter(response.data.products, function(product){ return product.instoreaisleid === parseInt($scope.aisleNumber); });
-        $scope.productsList = aisleProducts;
-       },function (error){
+    $scope.LoadProducts = function(term) {
+         var data = {};
+         data.q = term;
+         data.store='1294';
+         data.type='products';
 
-       });
-    };
+         return searchFactory.search(data).then(function (response){            
+           console.log(response);
+           $scope.allProducts = response.products;
+           var aisleProducts = _.filter(response.products, function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
+           $scope.productsList = aisleProducts;
+         });
+       };
 
   	$scope.init();
 
