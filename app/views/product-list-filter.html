@@ -20,8 +20,13 @@
 
   </div>
 </div>
-
-<div class="product-listing">
+<div class="loading" ng-if="productLoading">
+  <div class="loader">
+    <i class="fa fa-search" aria-hidden="true"></i>
+    <span class="text">Searching ...</span>
+  </div>
+</div>
+<div class="product-listing" ng-if="!productLoading">
   <h2 class="light">{{productsList.length}} results for '{{term}}' in Aisle {{aisleNumber}}</h2>
 
   <div class="table-lister">
