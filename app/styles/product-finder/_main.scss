@@ -166,7 +166,7 @@ tags-input {
     	border-radius: 0 0 5px 5px;
     	border: 1px solid $light;
     	padding-top: 10px;
-    	padding: 10px 0 2px 0;  	
+    	padding: 10px 0 2px 0;
 	}
 	.suggestion-list {
 		border: 0;
@@ -251,9 +251,9 @@ tags-input {
 	list-style: none;
 	li {
 		margin: 7px 0;
-		background: $light;
+		background: #efefef;
 		position: relative;
-		padding: 10px;
+		padding: 0px;
 		animation: fadeInUp 0.5s;
 		&:nth-child(1) {
     	animation: fadeInUp 0.7s;
@@ -267,11 +267,22 @@ tags-input {
 		&:nth-child(4) {
     	animation: fadeInUp 1.3s;
 		}
+		.media-left {
+			background: $light;
+			text-align: center;
+			padding: 10px 15px;
+		}
 		.media-body {
 			vertical-align: middle;
+			padding: 10px;
+			border-left: 1px solid $darkerGrey;
 			h5 {
 				margin-bottom: 0;
 			}
+		}
+		.category {
+			padding-top: 30px;
+    	text-align: center;
 		}
 		.aisle-number {
 			font-size: 2rem;
@@ -284,7 +295,7 @@ tags-input {
 			}
 		}
 		.map-marker {
-			padding: 15px;
+			padding: 30px 15px;
     	display: block;
     	font-weight: 500;
     	text-align: right;
@@ -297,3 +308,32 @@ tags-input {
 		}
 	}
 }
+
+.loading{
+  display:block;
+  position:absolute;
+  width:300px;height:300px;
+  transform:translate(-50%,-50%);
+  top:50%;
+  left:50%;
+  text-align: center;
+  animation: fadeIn 0.5s;
+  .loader{
+	  display:block;
+	  position:absolute;
+	  height:7em;
+	  width: 300px;
+	  top:50%;
+	  i {
+	  	font-size: 4rem;
+	  	color: $light;
+	  }
+	  .text {
+	  	font-size: 3rem;
+	  	display: block;
+	  	color: $light;
+	  	margin: 20px 0;
+	  }
+	}
+}
+

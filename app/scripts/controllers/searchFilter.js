@@ -35,7 +35,7 @@ angular.module('wowProductFinderApp')
       });
 
     };
-    
+
     $scope.goProductlisting = function() {
         console.log($scope.selectedProduct);
         $location.path('/product-list/' + $scope.selectedProduct[0].result);
@@ -46,8 +46,9 @@ angular.module('wowProductFinderApp')
          data.q = term;
          data.store='1294';
          data.type='products';
+         data.max = 1000;
 
-         searchFactory.search(data).then(function (response){            
+         searchFactory.search(data).then(function (response){
            $scope.allProducts = response.products;
            var aisleProducts = _.filter(response.products, function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
            $scope.productsList = aisleProducts;

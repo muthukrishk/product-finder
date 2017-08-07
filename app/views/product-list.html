@@ -20,8 +20,14 @@
 
   </div>
 </div>
+<div class="loading" ng-if="productLoading">
+  <div class="loader">
+      <i class="fa fa-search" aria-hidden="true"></i>
+<span class="text">Searching ...</span>
+  </div>
 
-<div class="product-listing">
+</div>
+<div class="product-listing" ng-if="!productLoading">
   <h1 class="light">{{allProducts.length}} results for '{{term}}'</h1>
 
   <div class="table-lister" ng-repeat="(key, products) in productsList">
@@ -56,7 +62,7 @@
             </div>
           </div>
           <div class="col-sm-3 border-right">
-            <h5 class="pt4 center">{{product.ecfcategory1}}</h5>
+            <h5 class="category">{{product.ecfcategory1}}</h5>
           </div>
           <div class="col-sm-3">
             <a href="" class="map-marker">
