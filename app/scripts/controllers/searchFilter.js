@@ -55,6 +55,32 @@ angular.module('wowProductFinderApp')
            $scope.productsList = aisleProducts;
          });
        };
+       
+     //For sort
+       $scope.sortoptionList=[];
+       $scope.sortoptions=[
+                           {id:"relevance",name:"Relevance"},
+                           {id:"alphabetical",name:"A to Z"},
+                           {id:"alphabetical",name:"Z to A"}]
+
+       $scope.productSort=function(item){
+               	var data = {};
+            	data.q = $scope.term;
+            	data.store='1294';
+            	data.type='products';
+            	data.sort=item.id;
+            	data.reversed='false';
+            	data.max = 1000;
+           if(item.name == "Z to A"){
+   			data.reversed='true';
+           }
+           searchFactory.search(data).then(function (response){
+   			$scope.allProducts = response.products;            
+               var aisleProducts = _.filter(response.products, function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
+               $scope.productsList = aisleProducts;
+            });
+       }   
+       //End of sort
 
   	$scope.init();
 

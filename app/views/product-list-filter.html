@@ -39,7 +39,10 @@
           <h5 class="light center">Category</h5>
         </div>
         <div class="col-sm-3">
-
+			<select class="right" ng-model="sortoption" ng-change="productSort(sortoption)" 
+     				 data-ng-options="sort as sort.name for sort in sortoptions">
+    				<option value="">Select an Order</option>
+			</select> 
         </div>
       </div>
     </div>
