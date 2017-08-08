@@ -12,8 +12,11 @@ angular.module('wowProductFinderApp')
 
   	$scope.init = function() {
   		$scope.selectedProduct = [];
-
-      $scope.term = $routeParams.term;
+  		$scope.sortoptions=[
+	        {id:"relevance",name:"Relevance"},
+	        {id:"alphabetical",name:"A to Z"},
+	        {id:"alphabetical",name:"Z to A"}];
+  		$scope.term = $routeParams.term;
   		$scope.aisleNumber = $routeParams.aisleNumber;
   		var paramsObj = {};
   		paramsObj.result = $routeParams.term;
@@ -38,49 +41,40 @@ angular.module('wowProductFinderApp')
 
     $scope.goProductlisting = function() {
         console.log($scope.selectedProduct);
-        $location.path('/product-list/' + $scope.selectedProduct[0].result);
+        $location.path('/product-list-filter/' + $scope.selectedProduct[0].result + '/' + $scope.aisleNumber);
      };
 
-    $scope.LoadProducts = function(term) {
+    $scope.LoadProducts = function(term, sortOptions) {
          var data = {};
          data.q = term;
          data.store='1294';
          data.type='products';
          data.max = 1000;
-         $scope.productLoading = true;
+         if(sortOptions) {
+           data.sort = sortOptions.id;
+         }
+         if(sortOptions && sortOptions.name == "Z to A") {
+        	 data.reversed='true';
+         }
+         if(!sortOptions) {
+        	 $scope.productLoading = true;
+         } else {
+        	 $scope.sortingProducts = true;
+         }
+        
          searchFactory.search(data).then(function (response){
           $scope.productLoading = false;
+          $scope.sortingProducts = false;
            $scope.allProducts = response.products;
            var aisleProducts = _.filter(response.products, function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
            $scope.productsList = aisleProducts;
          });
        };
        
-     //For sort
-       $scope.sortoptionList=[];
-       $scope.sortoptions=[
-                           {id:"relevance",name:"Relevance"},
-                           {id:"alphabetical",name:"A to Z"},
-                           {id:"alphabetical",name:"Z to A"}]
-
-       $scope.productSort=function(item){
-               	var data = {};
-            	data.q = $scope.term;
-            	data.store='1294';
-            	data.type='products';
-            	data.sort=item.id;
-            	data.reversed='false';
-            	data.max = 1000;
-           if(item.name == "Z to A"){
-   			data.reversed='true';
-           }
-           searchFactory.search(data).then(function (response){
-   			$scope.allProducts = response.products;            
-               var aisleProducts = _.filter(response.products, function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
-               $scope.productsList = aisleProducts;
-            });
-       }   
-       //End of sort
+       
+       $scope.productSort = function(sortOptions){
+    	  $scope.LoadProducts($scope.term, sortOptions);     	
+       };   
 
   	$scope.init();
 
