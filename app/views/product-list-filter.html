@@ -14,6 +14,9 @@
       <auto-complete source="loadSuggestions($query)"
                      min-length="2"
                      max-results-to-show="15"
+                     select-first-match="false"
+                     add-on-blur="false"
+                     debounce-delay="700"
                      template="autocomplete-template" class="autoComplete"></auto-complete>
       </tags-input>
     </div>
@@ -39,11 +42,20 @@
           <h5 class="light center">Category</h5>
         </div>
         <div class="col-sm-3">
-
+			<!--  <select class="right" ng-model="sortoption" ng-change="productSort(sortoption)" 
+     				 data-ng-options="sort as sort.name for sort in sortoptions">
+    				<option value="">Select an Order</option>
+			</select> -->
         </div>
       </div>
     </div>
-    <ul class="item-list">
+    <div class="loading" ng-if="sortingProducts">
+	  <div class="loader">
+	    <i class="fa fa-search" aria-hidden="true"></i>
+	    <span class="text">Sorting ...</span>
+	  </div>
+	</div>
+    <ul class="item-list" ng-if="!sortingProducts">
       <li class="clearfix" ng-repeat="product in productsList" >
         <div class="row row-flex ">
           <div class="col-sm-6 border-right">
@@ -61,7 +73,7 @@
             </div>
           </div>
           <div class="col-sm-3 border-right">
-            <h5 class="pt4 center">{{product.ecfcategory1}}</h5>
+            <h5 class="category">{{product.ecfcategory1}}</h5>
           </div>
           <div class="col-sm-3">
             <a href="" class="map-marker">
