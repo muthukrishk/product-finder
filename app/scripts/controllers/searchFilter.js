@@ -20,8 +20,16 @@ angular.module('wowProductFinderApp')
 
   		$scope.term = $routeParams.term;
   		$scope.aisleNumber = $routeParams.aisleNumber;
-  		$scope.category = $routeParams.category;
-  		console.log($scope.category);
+  		$scope.category = null;
+  		$scope.storeLocation = null;
+  		if($routeParams.category != null){
+  			$scope.category = $routeParams.category;
+  		}
+  		if($routeParams.storeLocation != null ){
+  			$scope.storeLocation = $routeParams.storeLocation;
+  		}
+  		console.log("Category" + $scope.category);
+  		console.log("Store Location" + $scope.storeLocation);
   		
   		var paramsObj = {};
   		paramsObj.result = $routeParams.term;
@@ -35,10 +43,17 @@ angular.module('wowProductFinderApp')
         var aisleProducts = _.filter(productService.getallProducts(), function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
         $scope.productsList = aisleProducts;
         if($scope.category !== null){
-        	console.log("Not Null");
+        	console.log("Category Not Null");
         	var productsWithoutAisleid = _.filter(productService.getallProducts(), function(product){return !product.instoreaisleid && product.ecfcategory1 === $scope.category  });
         	console.log(productsWithoutAisleid);
       	  	$scope.productsonCategory = productsWithoutAisleid;
+        }
+        else if($scope.storeLocation !== null) {
+        	console.log("Aisle 0 - Store Location Not Null");
+      	  	var productsWithAisleZero = _.filter(productService.getallProducts(), function(product){
+      	  	return (parseInt(product.instoreaisleid) === 0) && product.instorelocation === $scope.storeLocation;});
+      	  	$scope.productsonAisle0 = productsWithAisleZero;
+      	  	console.log($scope.productsonAisle0);
         }
       }
 
@@ -86,15 +101,22 @@ angular.module('wowProductFinderApp')
           $scope.productLoading = false;
           $scope.sortingProducts = false;
           $scope.allProducts = response.products;
-          if($scope.category == null){
-        	  console.log("Null");
-           var aisleProducts = _.filter(response.products, function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
-           $scope.productsList = aisleProducts;
+          if($scope.category !== null){
+        	  console.log("Category Not Null");
+        	  var productsWithoutAisleid = _.filter(response.products, function(product){return !product.instoreaisleid && product.ecfcategory1 === $scope.category  });
+        	  $scope.productsonCategory = productsWithoutAisleid;  
+          }
+          else if($scope.storeLocation !== null){
+        	  console.log("Aisle 0 - Store Location Not Null");
+        	  var productsWithAisleZero = _.filter(response.products, function(product){
+        	  return (parseInt(product.instoreaisleid) === 0) && product.instorelocation === $scope.storeLocation;});
+        	  $scope.productsonAisle0 = productsWithAisleZero;
+        	  console.log($scope.productsonAisle0);
           }
           else{
-        	  console.log("Not Null");
-        	  var productsWithoutAisleid = _.filter(response.products, function(product){return !product.instoreaisleid && product.ecfcategory1 === $scope.category  });
-        	  $scope.productsonCategory = productsWithoutAisleid;
+        	  console.log("Aisle based Filter");
+              var aisleProducts = _.filter(response.products, function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
+              $scope.productsList = aisleProducts;
           }
          });
        };

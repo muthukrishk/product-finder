@@ -19,6 +19,10 @@
         templateUrl: 'views/product-list-filter.html',
         controller: 'SearchListinFilterCtrl'
       })
+       .when('/product-aisle-filter/:term/:storeLocation', {
+        templateUrl: 'views/product-list-filter.html',
+        controller: 'SearchListinFilterCtrl'
+      })
 
       .otherwise({
         redirectTo: '/'

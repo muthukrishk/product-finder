@@ -66,9 +66,15 @@ angular.module('wowProductFinderApp')
       $location.path('/product-list-filter/' + $scope.selectedProduct[0].result + '/' + aisleNumber);
     };
     
-    $scope.drillDownCategory = function(aisleNumber) {
-        $location.path('/product-category-filter/' + $scope.selectedProduct[0].result + '/' + aisleNumber);
-      };
+    $scope.drillDownCategory = function(category) {
+        $location.path('/product-category-filter/' + $scope.selectedProduct[0].result + '/' + category);
+    };
+    
+    $scope.drillDownAisle0 = function(storeLocation) {
+        $location.path('/product-aisle-filter/' + $scope.selectedProduct[0].result + '/' + storeLocation);
+    };
+    
+    
 
   	$scope.init();
 
