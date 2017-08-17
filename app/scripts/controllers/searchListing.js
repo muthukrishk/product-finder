@@ -48,10 +48,16 @@ angular.module('wowProductFinderApp')
          data.max = 1000;
          $scope.productLoading = true;
          searchFactory.search(data).then(function (response){
-             $scope.allProducts = response.products;
-             $scope.productLoading = false;
-             $scope.productsList = _.groupBy(response.products, 'instoreaisleid');
-             productService.setallProducts(response.products);
+            $scope.allProducts = response.products;
+            $scope.productLoading = false;
+            var productsWithAisle = _.filter(response.products, function(product){return product.instoreaisleid && parseInt(product.instoreaisleid) != 0});
+            $scope.productsList = _.groupBy(productsWithAisle, 'instoreaisleid');
+            var productsWithoutAisle = _.filter(response.products, function(product){return !product.instoreaisleid});
+            $scope.productsListCateogry = _.groupBy(productsWithoutAisle, 'ecfcategory1');
+            var productsWithAisleZero = _.filter(response.products, function(product){return parseInt(product.instoreaisleid) === 0});
+            $scope.productsListInStore = _.groupBy(productsWithAisleZero, 'instorelocation')
+            console.log($scope.productsListInStore );
+            productService.setallProducts(response.products);
          });
 
        };

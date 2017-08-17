@@ -31,12 +31,103 @@
 </div>
 <div class="product-listing" ng-if="!productLoading">
   <h1 class="light">{{allProducts.length}} results for '{{term}}'</h1>
-
+  <h3 class="light" ng-if="productsList">Sort Based on Aisle</h3>
   <div class="table-lister" ng-repeat="(key, products) in productsList">
+
     <div class="lister-heading">
       <div class="row">
         <div class="col-sm-6">
           <h4 class="light">Aisle ({{key}})</h4>
+        </div>
+        <div class="col-sm-3">
+          <h5 class="light center">Category</h5>
+        </div>
+        <div class="col-sm-3" ng-if="products.length > 3">
+          <a href="" class="allLink" ng-click="drillDownAisle(key)">View all ></a>
+        </div>
+      </div>
+    </div>
+    <ul class="item-list">
+      <li class="clearfix" ng-repeat="product in products | limitTo: 3" >
+        <div class="row row-flex ">
+          <div class="col-sm-6 border-right">
+            <div class="media">
+              <div class="media-left">
+                <div class="image large">
+                  <img class="image" ng-src="{{product.images.thumbnail}}">
+                </div>
+              </div>
+              <div class="media-body">
+                <h5>
+                  {{product.description}}
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 border-right">
+            <h5 class="category">{{product.ecfcategory1}}</h5>
+          </div>
+          <div class="col-sm-3">
+            <a href="" class="map-marker">
+                Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
+              </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <h3 class="light" ng-if="productsList">Sort By in Store Location</h3>
+  <div class="table-lister" ng-repeat="(key, products) in productsListInStore">
+
+    <div class="lister-heading">
+      <div class="row">
+        <div class="col-sm-6">
+          <h4 class="light">{{key}}</h4>
+        </div>
+        <div class="col-sm-3">
+          <h5 class="light center">Category</h5>
+        </div>
+        <div class="col-sm-3" ng-if="products.length > 3">
+          <a href="" class="allLink" ng-click="drillDownAisle(key)">View all ></a>
+        </div>
+      </div>
+    </div>
+    <ul class="item-list">
+      <li class="clearfix" ng-repeat="product in products | limitTo: 3" >
+        <div class="row row-flex ">
+          <div class="col-sm-6 border-right">
+            <div class="media">
+              <div class="media-left">
+                <div class="image large">
+                  <img class="image" ng-src="{{product.images.thumbnail}}">
+                </div>
+              </div>
+              <div class="media-body">
+                <h5>
+                  {{product.description}}
+                </h5>
+              </div>
+            </div>
+          </div>
+          <div class="col-sm-3 border-right">
+            <h5 class="category">{{product.ecfcategory1}}</h5>
+          </div>
+          <div class="col-sm-3">
+            <a href="" class="map-marker">
+                Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
+              </a>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <h3 class="light" ng-if="productsListCateogry">Sort Based on Category</h3>
+  <div class="table-lister" ng-repeat="(key, products) in productsListCateogry">
+
+    <div class="lister-heading">
+      <div class="row">
+        <div class="col-sm-6">
+          <h4 class="light">{{key}}</h4>
         </div>
         <div class="col-sm-3">
           <h5 class="light center">Category</h5>

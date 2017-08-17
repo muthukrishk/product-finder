@@ -15,6 +15,7 @@
         templateUrl: 'views/product-list-filter.html',
         controller: 'SearchListinFilterCtrl'
       })
+
       .otherwise({
         redirectTo: '/'
       });
