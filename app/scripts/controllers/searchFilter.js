@@ -20,15 +20,26 @@ angular.module('wowProductFinderApp')
 
   		$scope.term = $routeParams.term;
   		$scope.aisleNumber = $routeParams.aisleNumber;
+  		$scope.category = $routeParams.category;
+  		console.log($scope.category);
+  		
   		var paramsObj = {};
   		paramsObj.result = $routeParams.term;
   		$scope.selectedProduct.push(paramsObj);
       var allProducts = productService.getallProducts();
       if(!allProducts) {
         $scope.LoadProducts($scope.term);
+        console.log("Going to Load Products- From API");
       } else {
+    	console.log("Fetch from Local Storage");
         var aisleProducts = _.filter(productService.getallProducts(), function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
         $scope.productsList = aisleProducts;
+        if($scope.category !== null){
+        	console.log("Not Null");
+        	var productsWithoutAisleid = _.filter(productService.getallProducts(), function(product){return !product.instoreaisleid && product.ecfcategory1 === $scope.category  });
+        	console.log(productsWithoutAisleid);
+      	  	$scope.productsonCategory = productsWithoutAisleid;
+        }
       }
 
   	};
@@ -74,9 +85,17 @@ angular.module('wowProductFinderApp')
          searchFactory.search(data).then(function (response){
           $scope.productLoading = false;
           $scope.sortingProducts = false;
-           $scope.allProducts = response.products;
+          $scope.allProducts = response.products;
+          if($scope.category == null){
+        	  console.log("Null");
            var aisleProducts = _.filter(response.products, function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
            $scope.productsList = aisleProducts;
+          }
+          else{
+        	  console.log("Not Null");
+        	  var productsWithoutAisleid = _.filter(response.products, function(product){return !product.instoreaisleid && product.ecfcategory1 === $scope.category  });
+        	  $scope.productsonCategory = productsWithoutAisleid;
+          }
          });
        };
 

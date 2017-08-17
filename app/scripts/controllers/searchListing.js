@@ -65,6 +65,10 @@ angular.module('wowProductFinderApp')
     $scope.drillDownAisle = function(aisleNumber) {
       $location.path('/product-list-filter/' + $scope.selectedProduct[0].result + '/' + aisleNumber);
     };
+    
+    $scope.drillDownCategory = function(aisleNumber) {
+        $location.path('/product-category-filter/' + $scope.selectedProduct[0].result + '/' + aisleNumber);
+      };
 
   	$scope.init();
 
