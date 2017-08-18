@@ -28,28 +28,27 @@ angular.module('wowProductFinderApp')
   		if($routeParams.storeLocation != null ){
   			$scope.storeLocation = $routeParams.storeLocation;
   		}
-  		console.log("Category" + $scope.category);
-  		console.log("Store Location" + $scope.storeLocation);
   		
   		var paramsObj = {};
   		paramsObj.result = $routeParams.term;
   		$scope.selectedProduct.push(paramsObj);
+  		
       var allProducts = productService.getallProducts();
       if(!allProducts) {
+    	//Fetching Products from API
         $scope.LoadProducts($scope.term);
-        console.log("Going to Load Products- From API");
       } else {
-    	console.log("Fetch from Local Storage");
+    	//Filtering based on aisle
         var aisleProducts = _.filter(productService.getallProducts(), function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
         $scope.productsList = aisleProducts;
         if($scope.category !== null){
-        	console.log("Category Not Null");
+        	 //Filtering based on category - Aisle undefined
         	var productsWithoutAisleid = _.filter(productService.getallProducts(), function(product){return !product.instoreaisleid && product.ecfcategory1 === $scope.category  });
         	console.log(productsWithoutAisleid);
       	  	$scope.productsonCategory = productsWithoutAisleid;
         }
         else if($scope.storeLocation !== null) {
-        	console.log("Aisle 0 - Store Location Not Null");
+        	//Filtering based on InStoreLocation for Aisle 0
       	  	var productsWithAisleZero = _.filter(productService.getallProducts(), function(product){
       	  	return (parseInt(product.instoreaisleid) === 0) && product.instorelocation === $scope.storeLocation;});
       	  	$scope.productsonAisle0 = productsWithAisleZero;
@@ -102,19 +101,18 @@ angular.module('wowProductFinderApp')
           $scope.sortingProducts = false;
           $scope.allProducts = response.products;
           if($scope.category !== null){
-        	  console.log("Category Not Null");
+        	  //Filtering based on category - Aisle undefined
         	  var productsWithoutAisleid = _.filter(response.products, function(product){return !product.instoreaisleid && product.ecfcategory1 === $scope.category  });
         	  $scope.productsonCategory = productsWithoutAisleid;  
           }
           else if($scope.storeLocation !== null){
-        	  console.log("Aisle 0 - Store Location Not Null");
+        	//Filtering based on InStoreLocation for Aisle 0
         	  var productsWithAisleZero = _.filter(response.products, function(product){
         	  return (parseInt(product.instoreaisleid) === 0) && product.instorelocation === $scope.storeLocation;});
         	  $scope.productsonAisle0 = productsWithAisleZero;
-        	  console.log($scope.productsonAisle0);
           }
           else{
-        	  console.log("Aisle based Filter");
+        	//Filtering based on Aisle
               var aisleProducts = _.filter(response.products, function(product){return product.instoreaisleid === parseInt($scope.aisleNumber); });
               $scope.productsList = aisleProducts;
           }

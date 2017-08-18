@@ -31,7 +31,8 @@
 </div>
 <div class="product-listing" ng-if="!productLoading">
   <h1 class="light">{{allProducts.length}} results for '{{term}}'</h1>
-  <h3 class="light" ng-if="productsList">Sort Based on Aisle</h3>
+  <!-- Products with Aisle information -->
+  <h3 class="light" ng-if="productsListisEmpty != true">Sort Based on Aisle</h3>
   <div class="table-lister" ng-repeat="(key, products) in productsList">
 
     <div class="lister-heading">
@@ -76,7 +77,8 @@
       </li>
     </ul>
   </div>
-  <h3 class="light" ng-if="productsListInStore">Sort By in Store Location</h3>
+  <!-- Products Under Aisle 0 - Grouping based on InStoreLocation -->
+  <h3 class="light" ng-if="productsListInStoreisEmpty != true">Sort By in Store Location</h3>
   <div class="table-lister" ng-repeat="(key, products) in productsListInStore">
 
     <div class="lister-heading">
@@ -121,7 +123,8 @@
       </li>
     </ul>
   </div>
-  <h3 class="light" ng-if="productsListCateogry">Sort Based on Category</h3>
+  <!-- Products with no aisle info - Grouping based on Category -->
+  <h3 class="light" ng-if="productsListCateogryisEmpty != true">Sort Based on Category</h3>
   <div class="table-lister" ng-repeat="(key, products) in productsListCateogry">
 
     <div class="lister-heading">

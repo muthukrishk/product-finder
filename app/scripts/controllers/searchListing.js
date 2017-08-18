@@ -47,16 +47,22 @@ angular.module('wowProductFinderApp')
          data.type='products';
          data.max = 1000;
          $scope.productLoading = true;
+                 
          searchFactory.search(data).then(function (response){
             $scope.allProducts = response.products;
             $scope.productLoading = false;
+            //Filtering products that have aisle details
             var productsWithAisle = _.filter(response.products, function(product){return product.instoreaisleid && parseInt(product.instoreaisleid) != 0});
             $scope.productsList = _.groupBy(productsWithAisle, 'instoreaisleid');
+            $scope.productsListisEmpty =_.isEmpty($scope.productsList); //checking if the array is empty
+            //Products with no Aisle info - Grouping based on category
             var productsWithoutAisle = _.filter(response.products, function(product){return !product.instoreaisleid});
             $scope.productsListCateogry = _.groupBy(productsWithoutAisle, 'ecfcategory1');
+            $scope.productsListCateogryisEmpty =_.isEmpty($scope.productsListCateogry);
+            //Products in Aisle 0 - Grouping based on InStore Location
             var productsWithAisleZero = _.filter(response.products, function(product){return parseInt(product.instoreaisleid) === 0});
             $scope.productsListInStore = _.groupBy(productsWithAisleZero, 'instorelocation')
-            console.log($scope.productsListInStore );
+            $scope.productsListInStoreisEmpty =_.isEmpty($scope.productsListInStore);
             productService.setallProducts(response.products);
          });
 

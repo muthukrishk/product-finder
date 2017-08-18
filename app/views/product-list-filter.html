@@ -30,7 +30,9 @@
   </div>
 </div>
 <div class="product-listing" ng-if="!productLoading">
-  <h2 class="light">{{productsList.length}} results for '{{term}}' in Aisle {{aisleNumber}}</h2>
+  <h2 class="light" ng-if="productsList.length > 0">{{productsList.length}} results for '{{term}}' in Aisle {{aisleNumber}}</h2>
+  <h2 class="light" ng-if="productsonCategory.length > 0">{{productsonCategory.length}} results for '{{term}}' in Category '{{category}}'</h2>
+  <h2 class="light" ng-if="productsonAisle0.length > 0">{{productsonAisle0.length}} results for '{{term}}' in Aisle 0 - '{{storeLocation}}'</h2>
 
   <div class="table-lister">
     <div class="lister-heading">
@@ -55,6 +57,7 @@
 	    <span class="text">Sorting ...</span>
 	  </div>
 	</div>
+	<!-- Products with Aisle information -->
     <ul class="item-list" ng-if="productsList && !sortingProducts">
       <li class="clearfix" ng-repeat="product in productsList" >
         <div class="row row-flex ">
@@ -83,7 +86,7 @@
         </div>
       </li>
     </ul>
-    
+    <!-- Products with no aisle info - Grouping based on Category -->
     <ul class="item-list" ng-if="productsonCategory && !sortingProducts">
       <li class="clearfix" ng-repeat="product in productsonCategory" >
         <div class="row row-flex ">
@@ -112,7 +115,7 @@
         </div>
       </li>
     </ul>
-    
+    <!-- Products Under Aisle 0 - Grouping based on InStoreLocation -->
     <ul class="item-list" ng-if="productsonAisle0 && !sortingProducts">
       <li class="clearfix" ng-repeat="product in productsonAisle0" >
         <div class="row row-flex ">
