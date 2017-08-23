@@ -12,6 +12,10 @@ angular.module('wowProductFinderApp')
 
   	$scope.init = function() {
   		$scope.selectedProduct = [];
+		$scope.sortoptions=[
+		        	        {id:"relevance",name:"Relevance"},
+		        	        {id:"alphabetical",name:"A to Z"},
+		        	        {id:"alphabetical",name:"Z to A"}];
 
   		$scope.term = $routeParams.term;
   		var paramsObj = {};
@@ -57,6 +61,10 @@ angular.module('wowProductFinderApp')
     $scope.drillDownAisle = function(aisleNumber) {
       $location.path('/product-list-filter/' + $scope.selectedProduct[0].result + '/' + aisleNumber);
     };
+    
+    $scope.onSelect = function(sort) {
+        console.log(sort);
+      };
 
   	$scope.init();
 

@@ -38,14 +38,12 @@
 
   <div class="sortComponent">
       <p class="small"><b>Sort By</b></p>
-    <select ui-select2 ng-model = "sort" class="wow-select" data-placeholder="Relevance" ng-required="true">
-      <option value=""></option>
-      <option value="one">A to Z (Product name)</option>
-      <option value="two">Z to A (Product name)</option>
-      <option value="three">Relevance</option>
+    <select ui-select2 ng-model="sortoption" class="wow-select" data-placeholder="Relevance" ng-required="true" ng-change="onSelect(sortoption)"
+    data-ng-options="sort as sort.name for sort in sortoptions">
+      <option value=""></option> 
     </select>
   </div>
-
+  
       </div>
     </div>
 
