@@ -75,6 +75,7 @@ body {
 
 tags-input {
 	&.form-control {
+		border-radius: 25px;
 		padding: 0;
 		border: 0;
 	}
@@ -90,7 +91,7 @@ tags-input {
 		}
 	}
 	.tags {
-		border-radius: 5px;
+		border-radius: 25px;
     border: 0;
 		&.focused {
 			box-shadow: 0 0 0;
@@ -138,6 +139,8 @@ tags-input {
 	 	}
 	}
 	.autocomplete {
+		width: 95%;
+		margin-left: 20px;
 		.suggestion-list {
 			max-height: 150px;
 		}
