@@ -38,7 +38,7 @@
 
   <div class="sortComponent">
       <p class="small"><b>Sort By</b></p>
-    <select ui-select2 ng-model="sortoption" class="wow-select" data-placeholder="Relevance" ng-required="true" ng-change="onSelect(sortoption)"
+    <select ui-select2 ng-model="sortoption" class="wow-select" data-placeholder="Relevance" ng-required="true" ng-change="productSort(sortoption)"
     data-ng-options="sort as sort.name for sort in sortoptions">
       <option value=""></option> 
     </select>

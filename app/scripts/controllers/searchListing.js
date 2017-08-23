@@ -44,27 +44,35 @@ angular.module('wowProductFinderApp')
       $location.path('/product-list/' + $scope.selectedProduct[0].result);
     };
 
-    $scope.LoadProducts = function(term) {
-         var data = {};
-         data.q = term;
-         data.store='1294';
-         data.type='products';
-         data.max = 1000;
-         $scope.productLoading = true;
-         searchFactory.search(data).then(function (response){
-            $scope.allProducts = _.filter(response.products, function(product){return !_.isUndefined(product.instoreaisleid)});
-            $scope.productLoading = false;
-         });
+    $scope.LoadProducts = function(term, sortOptions) {
+        var data = {};
+        data.q = term;
+        data.store='1294';
+        data.type='products';
+        data.max = 1000;
+       if(sortOptions) {
+          data.sort = sortOptions.id;
+        }
+        if(sortOptions && sortOptions.name == "Z to A") {
+       	 data.reversed='true';
+        }
+        if(!sortOptions) {
+       	 $scope.productLoading = true;
+        } else {
+       	 $scope.sortingProducts = true;
+        }
+        searchFactory.search(data).then(function (response){
+           $scope.allProducts = _.filter(response.products, function(product){return !_.isUndefined(product.instoreaisleid)});
+           $scope.productLoading = false;
+           $scope.sortingProducts = false;
+           productService.setallProducts(response.products);
+        });
 
-       };
-
-    $scope.drillDownAisle = function(aisleNumber) {
-      $location.path('/product-list-filter/' + $scope.selectedProduct[0].result + '/' + aisleNumber);
-    };
-    
-    $scope.onSelect = function(sort) {
-        console.log(sort);
       };
+    
+	   $scope.productSort = function(sortOptions){
+	    	  $scope.LoadProducts($scope.term, sortOptions);
+	   };
 
   	$scope.init();
 
