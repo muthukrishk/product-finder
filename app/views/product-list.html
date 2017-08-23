@@ -30,25 +30,34 @@
   </div>
 </div>
 <div class="product-listing" ng-if="!productLoading">
-  <h1 class="light">{{allProducts.length}} results for '{{term}}'</h1>
-  <h3 class="light" ng-if="productsList">Sort Based on Aisle</h3>
-  <div class="table-lister" ng-repeat="(key, products) in productsList">
+  <h1 class="light">{{allProducts.length}} results for "{{term}}"</h1>
 
+  <div class="table-lister">
     <div class="lister-heading">
       <div class="row">
-        <div class="col-sm-6">
-          <h4 class="light">Aisle ({{key}})</h4>
-        </div>
-        <div class="col-sm-3">
-          <h5 class="light center">Category</h5>
-        </div>
-        <div class="col-sm-3" ng-if="products.length > 3">
-          <a href="" class="allLink" ng-click="drillDownAisle(key)">View all ></a>
-        </div>
+
+  <div class="sortComponent">
+      <p class="small"><b>Sort By</b></p>
+    <select ui-select2 ng-model = "sort" class="wow-select" data-placeholder="Relevance" ng-required="true">
+      <option value=""></option>
+      <option value="one">A to Z (Product name)</option>
+      <option value="two">Z to A (Product name)</option>
+      <option value="three">Relevance</option>
+    </select>
+  </div>
+
       </div>
     </div>
-    <ul class="item-list">
-      <li class="clearfix" ng-repeat="product in products | limitTo: 3" >
+
+        <div class="loading" ng-if="sortingProducts">
+	  <div class="loader">
+	    <i class="fa fa-circle-o-notch fa-spin spinner" aria-hidden="true"></i>
+	    <span class="text">Sorting ...</span>
+	  </div>
+	</div>
+
+    <ul class="item-list" ng-if="!sortingProducts">
+      <li class="clearfix" ng-repeat="product in allProducts" >
         <div class="row row-flex ">
           <div class="col-sm-6 border-right">
             <div class="media">
@@ -68,105 +77,12 @@
             <h5 class="category">{{product.ecfcategory1}}</h5>
           </div>
           <div class="col-sm-3">
-            <a href="" class="map-marker">
-                Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
-              </a>
+				<h5 class="category">{{product.instorelocation}}</h5>
           </div>
         </div>
       </li>
     </ul>
   </div>
-  <h3 class="light" ng-if="productsList">Sort By in Store Location</h3>
-  <div class="table-lister" ng-repeat="(key, products) in productsListInStore">
-
-    <div class="lister-heading">
-      <div class="row">
-        <div class="col-sm-6">
-          <h4 class="light">{{key}}</h4>
-        </div>
-        <div class="col-sm-3">
-          <h5 class="light center">Category</h5>
-        </div>
-        <div class="col-sm-3" ng-if="products.length > 3">
-          <a href="" class="allLink" ng-click="drillDownAisle(key)">View all ></a>
-        </div>
-      </div>
-    </div>
-    <ul class="item-list">
-      <li class="clearfix" ng-repeat="product in products | limitTo: 3" >
-        <div class="row row-flex ">
-          <div class="col-sm-6 border-right">
-            <div class="media">
-              <div class="media-left">
-                <div class="image large">
-                  <img class="image" ng-src="{{product.images.thumbnail}}">
-                </div>
-              </div>
-              <div class="media-body">
-                <h5>
-                  {{product.description}}
-                </h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3 border-right">
-            <h5 class="category">{{product.ecfcategory1}}</h5>
-          </div>
-          <div class="col-sm-3">
-            <a href="" class="map-marker">
-                Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
-              </a>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <h3 class="light" ng-if="productsListCateogry">Sort Based on Category</h3>
-  <div class="table-lister" ng-repeat="(key, products) in productsListCateogry">
-
-    <div class="lister-heading">
-      <div class="row">
-        <div class="col-sm-6">
-          <h4 class="light">{{key}}</h4>
-        </div>
-        <div class="col-sm-3">
-          <h5 class="light center">Category</h5>
-        </div>
-        <div class="col-sm-3" ng-if="products.length > 3">
-          <a href="" class="allLink" ng-click="drillDownAisle(key)">View all ></a>
-        </div>
-      </div>
-    </div>
-    <ul class="item-list">
-      <li class="clearfix" ng-repeat="product in products | limitTo: 3" >
-        <div class="row row-flex ">
-          <div class="col-sm-6 border-right">
-            <div class="media">
-              <div class="media-left">
-                <div class="image large">
-                  <img class="image" ng-src="{{product.images.thumbnail}}">
-                </div>
-              </div>
-              <div class="media-body">
-                <h5>
-                  {{product.description}}
-                </h5>
-              </div>
-            </div>
-          </div>
-          <div class="col-sm-3 border-right">
-            <h5 class="category">{{product.ecfcategory1}}</h5>
-          </div>
-          <div class="col-sm-3">
-            <a href="" class="map-marker">
-                Show on map <i class="fa fa-map-marker" aria-hidden="true"></i>
-              </a>
-          </div>
-        </div>
-      </li>
-    </ul>
-  </div>
-</div>
    <script type="text/ng-template" id="tag-template">
     <div class="tag-template">
       <div class="right-panel">
@@ -180,3 +96,9 @@
       <div>{{data.result}}</div>
     </div>
   </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+  	$('.wow-select').select2();
+    });
+
+</script>
