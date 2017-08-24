@@ -193,6 +193,15 @@ tags-input {
     }
 
 	}
+	.map-marker{
+	    position: absolute;
+    	font-size: 2.5rem;
+    	top: 5px;
+    	right: -42px;
+	a {
+    	color: $light;
+    }
+	}
 	@include linear-gradient(#1e5e2d, #277b3d);
 	.container {
 		padding: 0 70px;
