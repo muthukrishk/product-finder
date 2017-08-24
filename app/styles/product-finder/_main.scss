@@ -77,6 +77,7 @@ tags-input {
 	&.form-control {
 		padding: 0;
 		border: 0;
+		border-radius: 30px;
 	}
 
 	.host {
@@ -90,7 +91,7 @@ tags-input {
 		}
 	}
 	.tags {
-		border-radius: 5px;
+		border-radius: 30px;
     border: 0;
 		&.focused {
 			box-shadow: 0 0 0;
@@ -99,7 +100,7 @@ tags-input {
 	 		border: 0;
 	 		font-size: 1.2rem;
 	 		font-family: $FreshSans;
-	 		padding-left: 5px;
+	 		padding-left: 10px;
 	 		height: 95%;
 	 		color: #555;
 	 		font-weight: 500;
@@ -337,3 +338,66 @@ tags-input {
 	}
 }
 
+.store-info {
+	text-align: center;
+	padding: 50px 30px;
+	.storeMap {
+		img {
+			margin-top: 70px;
+			max-width: 100%;
+		}
+	}
+}
+
+.searchBar {
+	background: #275b38;
+	padding: 20px 0;
+	.container {
+		display: flex;
+		align-items: center;
+	}
+	.form {
+		width: 65%;
+    padding-left: 15px;
+	}
+	.brand {
+    display: flex;
+    align-items: center;
+    padding-right: 15px;
+    border-right: 2px dashed green;
+    h2 {
+    	margin-bottom: 0;
+    }
+		img {
+			width: 60px;
+	    /* float: left; */
+	    margin-right: 10px;
+	    height: 60px;
+
+		}
+	}
+}
+
+.categoryList {
+	padding: 80px;
+	.imageIconed {
+		text-align: center;
+		margin-bottom: 100px;
+		.icon {
+			width: 125px;
+			margin: auto;
+			img {
+				max-width: 100%;
+			}
+		}
+		.title {
+			text-transform: uppercase;
+			color: $light;
+			font-size: 1.6rem;
+	    margin-top: 20px;
+	    width: 75%;
+	    margin: 15px auto;
+	    line-height: 32px;
+		}
+	}
+}
