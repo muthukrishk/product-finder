@@ -37,17 +37,13 @@
 
   <div class="table-lister">
     <div class="lister-heading">
-      <div class="row">
-
-  <div class="sortComponent">
-      <p class="small"><b>Sort By</b></p>
-    <select ui-select2 ng-model="sortoption" class="wow-select" data-placeholder="Relevance" ng-required="true" ng-change="productSort(sortoption)"
-    data-ng-options="sort as sort.name for sort in sortoptions">
-      <option value=""></option> 
-    </select>
-  </div>
-  
-      </div>
+  		<div class="sortComponent">
+      		<p class="small"><b>Sort by</b></p>
+    		<select ui-select2 ng-model="sortoption" class="wow-select" data-placeholder="Relevance" ng-required="true" ng-change="productSort(sortoption)"
+    			data-ng-options="sort as sort.name for sort in sortoptions">
+      			<option value=""></option> 
+    		</select>
+  		</div>
     </div>
 
         <div class="loading" ng-if="sortingProducts">
