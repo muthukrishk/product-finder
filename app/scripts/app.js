@@ -15,7 +15,8 @@ angular
     'ngRoute',
     'ngSanitize',
     'ngTouch',
-    'ngTagsInput'
+    'ngTagsInput',
+    'infinite-scroll'
   ]);
 
 

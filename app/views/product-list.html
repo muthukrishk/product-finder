@@ -32,8 +32,8 @@
     <span class="text">Searching</span>
   </div>
 </div>
-<div class="product-listing" ng-if="!productLoading">
-  <h1 class="light">{{allProducts.length}} results for "{{term}}"</h1>
+<div class="product-listing" ng-if="!productLoading" infinite-scroll="loadMoreProducts()" infinite-scroll-disabled="productInfinteLoading" infinite-scroll-distance="0.05">
+  <h1 class="light">{{product_count}} results for "{{term}}"</h1>
 
   <div class="table-lister">
     <div class="lister-heading">
@@ -41,7 +41,7 @@
       		<p class="small"><b>Sort by</b></p>
     		<select ui-select2 ng-model="sortoption" class="wow-select" data-placeholder="Relevance" ng-required="true" ng-change="productSort(sortoption)"
     			data-ng-options="sort as sort.name for sort in sortoptions">
-      			<option value=""></option> 
+      			<option value=""></option>
     		</select>
   		</div>
     </div>
@@ -79,6 +79,12 @@
         </div>
       </li>
     </ul>
+    <div class="inline-loader" ng-if="productInfinteLoading">
+      <div class="loader">
+        <i class="fa fa-circle-o-notch fa-spin spinner" aria-hidden="true"></i>
+        <span class="text">Loading more products ...</span>
+      </div>
+    </div>
   </div>
    <script type="text/ng-template" id="tag-template">
     <div class="tag-template">

@@ -44,12 +44,46 @@ angular.module('wowProductFinderApp')
       $location.path('/product-list/' + $scope.selectedProduct[0].result);
     };
 
+    $scope.loadMoreProducts = function() {
+      console.log($scope.LoadMore.split('&'));
+      var loadMoreParts = {};
+      $scope.LoadMore.split('&').reduce(function (result, item) {
+        var parts = item.split('=');
+        loadMoreParts[parts[0]] = parts[1];
+      }, {});
+      $scope.productInfinteLoading = true;
+      var infinteData = {};
+      infinteData.q = $scope.term;
+      infinteData.store='1294';
+      infinteData.type='products';
+      infinteData.prodcurr = loadMoreParts.prodcurr;
+      infinteData.cursor = loadMoreParts.cursor;
+      infinteData.max = 40;
+      if(loadMoreParts.sort) {
+        infinteData.sort = loadMoreParts.sort;
+      }
+      if(loadMoreParts.reversed) {
+        infinteData.reversed='true';
+      }
+      searchFactory.search(infinteData).then(function (response){
+        if(response.products.length > 0) {
+          var productsWithId = _.filter(response.products, function(product){return !_.isUndefined(product.instoreaisleid)});
+          _.each(productsWithId, function(product){
+            $scope.allProducts.push(product);
+          });
+        }
+        $scope.LoadMore = response.nextpage;
+        $scope.productInfinteLoading = false;
+      });
+    };
+
+
     $scope.LoadProducts = function(term, sortOptions) {
         var data = {};
         data.q = term;
         data.store='1294';
         data.type='products';
-        data.max = 1000;
+        data.max = 40;
        if(sortOptions) {
           data.sort = sortOptions.id;
         }
@@ -65,13 +99,15 @@ angular.module('wowProductFinderApp')
            $scope.allProducts = _.filter(response.products, function(product){return !_.isUndefined(product.instoreaisleid)});
            $scope.productLoading = false;
            $scope.sortingProducts = false;
+           $scope.product_count = response.product_count;
+           $scope.LoadMore = response.nextpage;
            productService.setallProducts(response.products);
         });
 
       };
-    
+
 	   $scope.productSort = function(sortOptions){
-	    	  $scope.LoadProducts($scope.term, sortOptions);
+	    	$scope.LoadProducts($scope.term, sortOptions);
 	   };
 
   	$scope.init();
