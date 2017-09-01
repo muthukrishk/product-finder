@@ -44,7 +44,7 @@
     <div class="container">
     	<h2 class="light">Most Searched :</h1>
     			<div ng-if="keyword">
-    				<div ng-repeat="suggestions in keyword | limitTo: 15">
+    				<div ng-repeat="suggestions in keyword | limitTo: 10">
     					<div class="keywordblocks">
          					{{suggestions.result}}
       					</div>

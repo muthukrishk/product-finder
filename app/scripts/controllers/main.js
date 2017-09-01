@@ -35,7 +35,7 @@ angular.module('wowProductFinderApp')
     
     $scope.keyWords = function() {
         var data = {};
-        data.q = 'chicken';
+        data.q = 'chocolate';
         return searchFactory.suggestion(data).then(function (response){
         	$scope.keyword = response.suggestions;
         });
