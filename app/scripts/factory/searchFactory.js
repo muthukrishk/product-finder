@@ -5,9 +5,9 @@ angular.module('wowProductFinderApp')
 
   var baseUrl = api_url;
   var urls = {
-    search: 'v3/search',
-    autocomplete: 'v2/autocomplete'
-
+		    search: 'wow/v3/search',
+		    autocomplete: 'wow/v2/autocomplete',
+		    map: 'storemap/map'
   };
 
   var searchFactory = {};
@@ -21,8 +21,9 @@ angular.module('wowProductFinderApp')
     return HttpService.process(baseUrl+urls.autocomplete,'GET',data);
   };
 
-
-
+  searchFactory.getMap = function (data) {
+	    return HttpService.process(baseUrl+urls.map,'GET',data);
+};
 
   return searchFactory;
 });

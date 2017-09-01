@@ -1,9 +1,11 @@
-<div class="fixed-form">
+<div class="searchBar">
   <div class="container">
-    <span class="home-icon">
-      <a href="" ng-href="/"><i class="fa fa-home" aria-hidden="true"></i></a>
-    </span>
+      <div class="form">
+      <h1 class="light">Find a Product in Store</h1>
     <div class="iconed-auto-completed">
+    <span class="back-icon">
+      <a href="" ng-href="/"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+    </span>
       <tags-input ng-model="selectedProduct"
               display-property="result"
               placeholder="Search For Product"
@@ -13,7 +15,7 @@
        <span class="icon"><i class="fa fa-search"></i></span>
       <auto-complete source="loadSuggestions($query)"
                      min-length="2"
-                     max-results-to-show="15"
+                     max-results-to-show="5"
                      select-first-match="false"
                      add-on-blur="false"
                      debounce-delay="500"
@@ -23,8 +25,10 @@
       	  <a href="" ng-href="/"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
       </span>
     </div>
-
+    </div>
   </div>
+
+
 </div>
 <div class="loading" ng-if="productLoading">
   <div class="loader">
