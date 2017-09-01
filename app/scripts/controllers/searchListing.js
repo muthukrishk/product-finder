@@ -23,7 +23,15 @@ angular.module('wowProductFinderApp')
   		$scope.selectedProduct.push(paramsObj);
   		$scope.LoadProducts($scope.term);
   	};
-
+  	
+    $scope.closeMap = function() {
+        $scope.storeMapDiv = false;        
+    };
+      
+    $scope.openMap = function() {
+        $scope.storeMapDiv = true;       
+    };
+      
   	$scope.loadSuggestions = function(term) {
       var data = {};
       data.q = term;

@@ -13,14 +13,9 @@ angular.module('wowProductFinderApp')
     $scope.selectedProduct = [];
 
     $scope.init = function() {
- 		console.log("In init");
-    	$scope.storeMapDiv=true;
-  		var data = {};
-  		data.store = '1294';
-  		return searchFactory.getMap(data).then(function (response){
-  	        var map = response.map;
-  	        console.log(map);
-  	      });
+    	$scope.getStoreMap();
+    	$scope.keyWords();
+  		
   	};
   	
      $scope.loadSuggestions = function(term) {
@@ -38,9 +33,33 @@ angular.module('wowProductFinderApp')
 
     };
     
-    $scope.toggleView = function() {
-        $scope.storeMapDiv = !$scope.storeMapDiv;
-        
+    $scope.keyWords = function() {
+        var data = {};
+        data.q = 'chicken';
+        return searchFactory.suggestion(data).then(function (response){
+        	$scope.keyword = response.suggestions;
+        });
+      };
+      
+      $scope.getStoreMap = function() {
+    	  console.log("Get Store Map");
+    	    var data = {};
+    		data.store = '1294';
+    		return searchFactory.getMap(data).then(function (response){
+    	        var map = response.map;
+    	        console.log(map);
+    	    });
+        	$scope.storeMapDiv=true;
+        };
+      
+      
+    
+    $scope.closeMap = function() {
+        $scope.storeMapDiv = false;        
+      };
+      
+      $scope.openMap = function() {
+          $scope.storeMapDiv = true;       
       };
 
     $scope.goProductlisting = function() {

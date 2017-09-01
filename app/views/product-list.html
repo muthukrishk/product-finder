@@ -22,22 +22,30 @@
                      template="autocomplete-template" class="autoComplete"></auto-complete>
       </tags-input>
       <span class="map-marker">
-      	  <a href="" ng-href="/"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+      	  <a ng-click="openMap()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
       </span>
     </div>
     </div>
   </div>
-
-
 </div>
+
+<div class="container">
+  <div class="store-info">
+      <div class="storeMap" ng-show="storeMapDiv">
+      	<div ng-click="closeMap()" class="closebutton">X</div>  
+        <img src="../images/map.png">
+      </div>
+  </div>
+</div>
+
 <div class="loading" ng-if="productLoading">
   <div class="loader">
    <i class="fa fa-circle-o-notch fa-spin spinner" aria-hidden="true"></i>
     <span class="text">Searching</span>
   </div>
 </div>
-<div class="product-listing" ng-if="!productLoading" infinite-scroll="loadMoreProducts()" infinite-scroll-disabled="productInfinteLoading" infinite-scroll-distance="0.05">
-  <h1 class="light">{{product_count}} results for "{{term}}"</h1>
+<div class="product-listing container" ng-if="!productLoading" infinite-scroll="loadMoreProducts()" infinite-scroll-disabled="productInfinteLoading" infinite-scroll-distance="0.05">
+  <h1 class="light">Showing {{product_count}} Results For "{{term}}"</h1>
 
   <div class="table-lister">
     <div class="lister-heading">
@@ -60,7 +68,7 @@
     <ul class="item-list" ng-if="!sortingProducts">
       <li class="clearfix" ng-repeat="product in allProducts" >
         <div class="row row-flex ">
-          <div class="col-sm-6 border-right">
+          <div class="col-sm-9 border-right">
             <div class="media">
               <div class="media-left">
                 <div class="image large">
@@ -74,11 +82,8 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-3 border-right">
-            <h5 class="category">{{product.ecfcategory1}}</h5>
-          </div>
           <div class="col-sm-3">
-				<h5 class="category">{{product.instorelocation}}</h5>
+            <h5 class="category">{{product.ecfcategory1}}</h5>
           </div>
         </div>
       </li>

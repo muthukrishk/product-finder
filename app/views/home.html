@@ -6,7 +6,7 @@
 <div class="container">
   <div class="store-info">
       <div class="storeMap" ng-show="storeMapDiv">
-      	<div ng-click="toggleView()" class="closebutton">X</div>  
+      	<div ng-click="closeMap()" class="closebutton">X</div>  
         <img src="../images/map.png">
       </div>
   </div>
@@ -33,14 +33,25 @@
                      template="autocomplete-template" class="autoComplete"></auto-complete>
       </tags-input>
       <span class="map-marker">
-      	  <a ng-click="toggleView()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+      	  <a ng-click="openMap()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
       </span>
     </div>
     </div>
   </div>
-
-
 </div>
+
+  <div class="mostSearched">
+    <div class="container">
+    	<h2 class="light">Most Searched :</h1>
+    			<div ng-if="keyword">
+    				<div ng-repeat="suggestions in keyword | limitTo: 15">
+    					<div class="keywordblocks">
+         					{{suggestions.result}}
+      					</div>
+    				</div>
+    			</div>
+    </div>
+  </div>
 
 	  <script type="text/ng-template" id="tag-template">
     <div class="tag-template">
