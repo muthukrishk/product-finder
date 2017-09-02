@@ -51,12 +51,17 @@
 
   <div class="table-lister">
     <div class="lister-heading">
-  		<div class="sortComponent">
-      		<p class="small"><b>Sort by</b></p>
-    		<select ui-select2 ng-model="sortoption" class="wow-select" data-placeholder="Relevance" ng-required="true" ng-change="productSort(sortoption)"
-    			data-ng-options="sort as sort.name for sort in sortoptions">
-      			<option value=""></option>
-    		</select>
+       <div class="row row-flex ">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4">
+  				<div class="sortComponent">
+      				<p class="small"><b>Sort by</b></p>
+    					<select ui-select2 ng-model="sortoption" class="wow-select" data-placeholder="Relevance" ng-required="true" ng-change="productSort(sortoption)"
+    						data-ng-options="sort as sort.name for sort in sortoptions">
+      						<option value=""></option>
+    					</select>
+  				</div>
+  			</div>
   		</div>
     </div>
 
