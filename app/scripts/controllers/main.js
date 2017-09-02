@@ -51,6 +51,10 @@ angular.module('wowProductFinderApp')
     	    });
         	$scope.storeMapDiv=true;
         };
+        
+        $scope.keywordSearch = function(keyword){
+        	$location.path('/product-list/' + keyword);
+        };
       
       
     

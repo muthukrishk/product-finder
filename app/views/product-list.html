@@ -31,9 +31,11 @@
 
 <div class="container">
   <div class="store-info">
-      <div class="storeMap" ng-show="storeMapDiv">
-      	<div ng-click="closeMap()" class="closebutton">X</div>  
+      <div class="storeMap" ng-show="storeMapDiv"> 
         <img src="../images/map.png">
+        <span class="closebutton">
+        	<i ng-click="closeMap()" class="fa fa-remove" aria-hidden="true"></i>
+        </span>
       </div>
   </div>
 </div>

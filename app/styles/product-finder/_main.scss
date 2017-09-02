@@ -437,11 +437,11 @@ tags-input {
 			max-width: 95%;
 		}
 		.closebutton{
-    		color: white;
-    		font-size: 60px;
+			position: absolute;
+    		color: $light;
+    		font-size: 4rem;
     		cursor: pointer;
-    		float: right;
-    		padding: 10px 0px;
+    		
 		}
 	}
 
@@ -496,6 +496,7 @@ tags-input {
 	padding: 25px;
 	.container{
 			.keywordblocks{
+				cursor: pointer;
 				background-color:$mildGreen;
 				display:inline-block;
 				color:$light;
