@@ -214,7 +214,7 @@ tags-input {
 }
 
 .product-listing {
-	padding-top: 50px;
+	padding-top: 275px;
 	h1 {
 		position: relative;
 		margin-left: 15px;
@@ -222,8 +222,6 @@ tags-input {
 }
 
 .table-lister {
-	margin-top: 25px;
-	margin-bottom: 45px;
 	.lister-heading {
 		a {
 			font-weight: 500;
@@ -259,7 +257,6 @@ tags-input {
     	animation: fadeInUp 1.3s;
 		}
 		.media-left {
-			background: $light;
 			text-align: center;
 			padding: 10px 15px;
 			.image {
@@ -272,19 +269,16 @@ tags-input {
 		.media-body {
 			vertical-align: middle;
 			padding: 10px;
-			border-left: 1px solid $darkerGrey;
 			h5 {
 				margin-bottom: 0;
 			}
 		}
-		.category {
-			padding-top: 30px;
-    	text-align: center;
-		}
 		.aisle-number {
-			font-size: 2rem;
+			font-size: 1.5rem;
 			margin-bottom: 0;
-			padding-top: 20px;
+			padding-top: 60px;
+			line-height: inherit;
+			font-weight: 500;
 			.text-muted {
 				margin-left: 10px;
 		    font-size: 0.8rem;
@@ -336,9 +330,11 @@ tags-input {
 
 .sortComponent {
   margin: 20px;
+  display: flex;
   .small {
     margin-bottom: 0;
     color: #fff;
+    padding-right : 10px;
   }
 }
 
@@ -450,6 +446,7 @@ tags-input {
 .searchBar {
 	background: #0D5027;
 	padding: 50px 0;
+	z-index: 1;
 	.container {
 		display: flex;
 		align-items: center;

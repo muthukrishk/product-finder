@@ -78,14 +78,19 @@
                 </div>
               </div>
               <div class="media-body">
-                <h5>
-                  {{product.description}}
-                </h5>
+                <h2>{{product.description}}</h3>
+                <h4>{{product.ecfcategory2}}</h5>
               </div>
             </div>
           </div>
-          <div class="col-sm-3">
-            <h5 class="category">{{product.ecfcategory1}}</h5>
+          <div class="col-sm-3" ng-if="product.instoreaisleid !== undefined && product.instoreaisleid !== 0">
+            <h5 class="aisle-number">Aisle {{product.instoreaisleid}}</h5>
+          </div>
+          <div class="col-sm-3" ng-if="product.instoreaisleid !== undefined && product.instoreaisleid == 0">
+            <h5 class="aisle-number">{{product.instorelocation.replace('Find in', '')}}</h5>
+          </div>
+          <div class="col-sm-3" ng-if="product.instoreaisleid == undefined">
+            <h5 class="aisle-number">Please Contact at Desk</h5>
           </div>
         </div>
       </li>

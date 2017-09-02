@@ -75,7 +75,7 @@ angular.module('wowProductFinderApp')
       }
       searchFactory.search(infinteData).then(function (response){
         if(response.products.length > 0) {
-          var productsWithId = _.filter(response.products, function(product){return !_.isUndefined(product.instoreaisleid)});
+          var productsWithId = response.products;
           _.each(productsWithId, function(product){
             $scope.allProducts.push(product);
           });
@@ -104,7 +104,7 @@ angular.module('wowProductFinderApp')
        	 $scope.sortingProducts = true;
         }
         searchFactory.search(data).then(function (response){
-           $scope.allProducts = _.filter(response.products, function(product){return !_.isUndefined(product.instoreaisleid)});
+           $scope.allProducts = response.products;
            $scope.productLoading = false;
            $scope.sortingProducts = false;
            $scope.product_count = response.product_count;
