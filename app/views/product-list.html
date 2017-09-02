@@ -70,7 +70,7 @@
     <ul class="item-list" ng-if="!sortingProducts">
       <li class="clearfix" ng-repeat="product in allProducts" >
         <div class="row row-flex ">
-          <div class="col-sm-9 border-right">
+          <div class="col-sm-9">
             <div class="media">
               <div class="media-left">
                 <div class="image large">
@@ -78,8 +78,10 @@
                 </div>
               </div>
               <div class="media-body">
-                <h2>{{product.description}}</h3>
-                <h4>{{product.ecfcategory2}}</h5>
+              	<div class="media-body-content">
+                	<h2>{{product.description}}</h3>
+                	<h4>{{product.ecfcategory2}}</h5>
+                </div>
               </div>
             </div>
           </div>

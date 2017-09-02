@@ -214,7 +214,8 @@ tags-input {
 }
 
 .product-listing {
-	padding-top: 275px;
+	/* padding-top: 275px; */
+	padding-top: 50px;
 	h1 {
 		position: relative;
 		margin-left: 15px;
@@ -269,12 +270,15 @@ tags-input {
 		.media-body {
 			vertical-align: middle;
 			padding: 10px;
-			h5 {
+			.media-body-content{
+				 border-right: 3px dotted $mildGreen;
+			}
+			h4 {
 				margin-bottom: 0;
 			}
 		}
 		.aisle-number {
-			font-size: 1.5rem;
+			font-size: 1.3rem;
 			margin-bottom: 0;
 			padding-top: 60px;
 			line-height: inherit;
@@ -335,6 +339,7 @@ tags-input {
     margin-bottom: 0;
     color: #fff;
     padding-right : 10px;
+    font-size: 16px;
   }
 }
 
@@ -507,3 +512,4 @@ tags-input {
 	}
 
 }
+
