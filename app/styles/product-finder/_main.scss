@@ -214,8 +214,7 @@ tags-input {
 }
 
 .product-listing {
-	/* padding-top: 275px; */
-	padding-top: 50px;
+	padding-top: 275px;
 	h1 {
 		position: relative;
 		margin-left: 15px;
@@ -275,6 +274,7 @@ tags-input {
 			}
 			h4 {
 				margin-bottom: 0;
+				font-weight: 400;
 			}
 		}
 		.aisle-number {
@@ -452,6 +452,8 @@ tags-input {
 	background: #0D5027;
 	padding: 50px 0;
 	z-index: 1;
+	width: 100%;
+	&.fixed{position: fixed;}
 	.container {
 		display: flex;
 		align-items: center;
@@ -469,7 +471,7 @@ tags-input {
     		}
     		.map-marker{
     			position: absolute;
-    			font-size: 3rem;
+    			font-size: 2.5rem;
     			top: 5px;
     			right: -42px;
     			a{color: $light;}
