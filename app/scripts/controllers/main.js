@@ -15,6 +15,7 @@ angular.module('wowProductFinderApp')
     $scope.init = function() {
     	$scope.getStoreMap();
     	$scope.keyWords();
+    	$scope.storeMapDiv = true;
   		
   	};
   	
@@ -59,11 +60,13 @@ angular.module('wowProductFinderApp')
       
     
     $scope.closeMap = function() {
-        $scope.storeMapDiv = false;        
+        $scope.storeMapDiv = false; 
+        angular.element('span.map-marker').removeClass('active');
       };
       
       $scope.openMap = function() {
-          $scope.storeMapDiv = true;       
+          $scope.storeMapDiv = true;
+          angular.element('span.map-marker').addClass('active');
       };
 
     $scope.goProductlisting = function() {

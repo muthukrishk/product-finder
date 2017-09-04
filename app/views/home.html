@@ -6,10 +6,8 @@
 <div class="container">
   <div class="store-info">
       <div class="storeMap" ng-show="storeMapDiv"> 
+      	<div ng-click="closeMap()" class="closebutton">X</div>
         <img src="../images/map.png">
-        <span class="closebutton">
-        	<i ng-click="closeMap()" class="fa fa-remove" aria-hidden="true"></i>
-        </span>
       </div>
   </div>
 </div>
@@ -34,7 +32,7 @@
                      add-on-blur="false"
                      template="autocomplete-template" class="autoComplete"></auto-complete>
       </tags-input>
-      <span class="map-marker">
+      <span class="map-marker active">
       	  <a ng-click="openMap()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
       </span>
     </div>
@@ -44,7 +42,7 @@
 
   <div class="mostSearched">
     <div class="container">
-    	<h2 class="light">Most Searched :</h1>
+    	<h2 class="light">Most Searched Products:</h1>
     			<div ng-if="keyword">
     				<div ng-repeat="suggestions in keyword | limitTo: 10">
     					<div class="keywordblocks" ng-click = "keywordSearch(suggestions.result)">

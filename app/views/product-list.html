@@ -1,7 +1,23 @@
-<div class="searchBar fixed">
+<div scrollcustom class="productListHeader" >
+<div class="searchLanding" ng-show="storeMapDiv">
+	<div class="brand">
+		<img src="../images/logo.png">
+	</div>
+
+<div class="container">
+  <div class="store-info">
+      <div class="storeMap"> 
+      	<div ng-click="closeMap()" class="closebutton">X</div>
+        <img src="../images/map.png">
+      </div>
+  </div>
+</div>
+</div>
+
+<div class="searchBar">
   <div class="container">
       <div class="form">
-      <h1 class="light">Find a Product in Store</h1>
+      <h1 class="light" scroll ng-class="{displaynone:ChangeClass}">Find a Product in Store</h1>
     <div class="iconed-auto-completed">
     <span class="back-icon">
       <a href="" ng-href="/"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
@@ -28,16 +44,6 @@
     </div>
   </div>
 </div>
-
-<div class="container">
-  <div class="store-info">
-      <div class="storeMap" ng-show="storeMapDiv"> 
-        <img src="../images/map.png">
-        <span class="closebutton">
-        	<i ng-click="closeMap()" class="fa fa-remove" aria-hidden="true"></i>
-        </span>
-      </div>
-  </div>
 </div>
 
 <div class="loading" ng-if="productLoading">
@@ -119,5 +125,5 @@
     $(document).ready(function() {
   	$('.wow-select').select2();
     });
-
 </script>
+
