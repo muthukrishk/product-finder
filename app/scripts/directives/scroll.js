@@ -3,13 +3,11 @@ angular.module('wowProductFinderApp').directive("scrollcustom", function ($windo
     	angular.element($window).bind("scroll", function() {
     		hdr = $('.searchLanding').height();
     	    if (this.pageYOffset > hdr) {
-    	    	console.log("Fitst");
     	    	angular.element('.searchBar').addClass('fixed');
     	    	angular.element('.product-listing').css('padding-top', '250px');
     	    	angular.element('.searchBar h1.light').addClass('displaynone');
     	    	
     	    } else {
-    	    	console.log("Else");
     	    	angular.element('.searchBar').removeClass('fixed');
     	    	angular.element('.product-listing').css('padding-top', '50px');
     	    	angular.element('.searchBar h1.light').removeClass('displaynone');
