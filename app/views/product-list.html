@@ -16,12 +16,16 @@
 
 <div class="searchBar">
   <div class="container">
+  <div class="col-md-1 col-sm-1 col-xs-1">
+  	<span class="back-icon">
+      <a href="" ng-href="/"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
+    </span>
+    </div>
+    <div class="col-md-10 col-sm-10 col-xs-10">
       <div class="form">
       <h1 class="light">Find a Product in Store</h1>
     <div class="iconed-auto-completed">
-    <span class="back-icon">
-      <a href="" ng-href="/"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-    </span>
+    
       <tags-input ng-model="selectedProduct"
               display-property="result"
               placeholder="Search For Product"
@@ -37,12 +41,15 @@
                      debounce-delay="500"
                      template="autocomplete-template" class="autoComplete"></auto-complete>
       </tags-input>
-      <span class="map-marker">
-      	  <a ng-click="openMap()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
-      </span>
+      
     </div>
     </div>
   </div>
+  <div class="col-md-1 col-sm-1 col-xs-1">
+ 	<span class="map-marker">
+     	  <a ng-click="openMap()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+     </span>
+ </div>
 </div>
 </div>
 
@@ -89,13 +96,13 @@
               </div>
             </div>
           </div>
-          <div class="col-sm-3" ng-if="product.instoreaisleid !== undefined && product.instoreaisleid !== 0">
+          <div class="col-sm-3 aisle-column" ng-if="product.instoreaisleid !== undefined && product.instoreaisleid !== 0">
             <h5 class="aisle-number">Aisle {{product.instoreaisleid}}</h5>
           </div>
-          <div class="col-sm-3" ng-if="product.instoreaisleid !== undefined && product.instoreaisleid == 0">
+          <div class="col-sm-3 aisle-column" ng-if="product.instoreaisleid !== undefined && product.instoreaisleid == 0">
             <h5 class="aisle-number">{{product.instorelocation.replace('Find in', '')}}</h5>
           </div>
-          <div class="col-sm-3" ng-if="product.instoreaisleid == undefined">
+          <div class="col-sm-3 aisle-column" ng-if="product.instoreaisleid == undefined">
             <h5 class="aisle-number">Please Contact at Desk</h5>
           </div>
         </div>
