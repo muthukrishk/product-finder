@@ -57,6 +57,7 @@ body {
     /* Opera */
     img {
         max-width: 40%;
+        cursor: pointer;
     }
 }
 
@@ -147,7 +148,7 @@ tags-input {
     }
     .autocomplete {
         .suggestion-item {
-            padding: 15px 10px;
+            padding: 19px 10px;
             font-size: 1.0rem;
             font-family: $FreshSans;
             font-weight: 500;
@@ -170,6 +171,7 @@ tags-input {
     }
     .suggestion-list {
         border: 0;
+        max-height: 320px !important;
     }
 }
 
@@ -233,6 +235,12 @@ tags-input {
             &:hover {
                 color: $light;
             }
+            .row-flex {
+                display: block;
+            }
+        }
+        .row-flex {
+            display: block;
         }
     }
 }
@@ -290,6 +298,9 @@ tags-input {
                 vertical-align: bottom;
             }
         }
+        .aisle-column {
+            margin: auto;
+        }
         .map-marker {
             padding: 30px 15px;
             display: block;
@@ -311,7 +322,7 @@ tags-input {
     width: 300px;
     height: 300px;
     transform: translate(-50%, -50%);
-    top: 50%;
+    top: 60%;
     left: 50%;
     text-align: center;
     animation: fadeIn 0.5s;
@@ -320,7 +331,7 @@ tags-input {
         position: absolute;
         height: 7em;
         width: 300px;
-        top: 50%;
+        top: 60%;
         i {
             font-size: 4rem;
             color: $light;
@@ -335,13 +346,15 @@ tags-input {
 }
 
 .sortComponent {
-    margin: 20px;
+    margin: 0px;
     display: flex;
+    float: right;
+    margin-right: 10px;
     .small {
         margin-bottom: 0;
         color: #fff;
+        margin-top: 3px;
         padding-right: 10px;
-        font-size: 16px;
     }
 }
 
@@ -394,7 +407,7 @@ tags-input {
     border-radius: 10px;
     box-shadow: 0 4px 5px rgba(0, 0, 0, .15);
     margin: 0;
-    min-width: 250px;
+    min-width: 125px;
     padding: 0;
     background: $light;
     max-height: none;
@@ -439,21 +452,22 @@ tags-input {
 .store-info {
     text-align: center;
     .storeMap {
+    	display: flex;
+    	justify-content: center;
         img {
-            max-width: 94%;
+            max-width: 95%;
         }
         .closebutton {
-            color: white;
-            font-size: 60px;
             cursor: pointer;
-            float: right;
-            padding: 10px 0px;
+            background-image: url(../images/map_close_icon.png);
+            width: 37px;
+            height: 37px;
         }
     }
 }
 
 .searchBar {
-    background: #0D5027;
+    background: $darkGreen;
     padding: 50px 0;
     z-index: 1;
     width: 100%;
@@ -463,9 +477,13 @@ tags-input {
         width: 100%;
         top: 0;
     }
-    .container {
-        display: flex;
+    .form-container {
         align-items: center;
+        .form{
+        	 .iconed-auto-completed {
+        			margin: 0 -13px;
+    			}
+        }
     }
     .back-icon {
         position: absolute;
@@ -480,9 +498,10 @@ tags-input {
         position: absolute;
         font-size: 2.5rem;
         top: 15px;
+        right: 10px;
         &.active {
             a {
-                color: green;
+                color: $mildGreen;
             }
         }
         a {
@@ -493,7 +512,7 @@ tags-input {
         display: flex;
         align-items: center;
         padding-right: 15px;
-        border-right: 2px dashed green;
+        border-right: 2px dashed $mildGreen;
         h2 {
             margin-bottom: 0;
         }
@@ -506,24 +525,18 @@ tags-input {
     }
 }
 
-.aisle-column {
-    margin: auto;
-}
-
 .mostSearched {
-    padding: 25px;
+    margin: 25px;
     .container {
-        .keywordblocks {
-            cursor: pointer;
-            background-color: $mildGreen;
-            display: inline-block;
-            color: $light;
-            padding: 10px;
-            border-radius: 35px;
-            float: left;
-            margin: 6px;
-            font-size: 18px;
-            font-weight: 500;
-        }
+    	.hList{
+			.keywords{
+				color: $light;
+  				border-radius: 25px;
+  				background-color: #25861e;
+  				padding: 10.5px;
+  				font-weight: 400;
+			}
+    	}
     }
+
 }

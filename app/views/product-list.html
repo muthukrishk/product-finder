@@ -1,53 +1,55 @@
 <div scrollcustom class="productListHeader" >
-<div class="searchLanding" ng-show="storeMapDiv">
+<div class="searchLanding">
 	<div class="brand">
-		<img src="../images/logo.png">
+		<a href="" ng-href="/">
+			<img src="../images/logo_white.png">
+		</a>
 	</div>
 
-<div class="container">
-  <div class="store-info">
-      <div class="storeMap"> 
-      	<div ng-click="closeMap()" class="closebutton">X</div>
-        <img src="../images/map.png">
-      </div>
-  </div>
-</div>
+	<div ng-show="storeMapDiv" class="container">
+  		<div class="store-info">
+      		<div class="storeMap"> 
+        		<img src="{{mapPath}}">
+        		<div ng-click="closeMap()" class="closebutton"></div>
+      		</div>
+  		</div>
+	</div>
 </div>
 
 <div class="searchBar">
-  <div class="container">
-  <div class="col-md-1 col-sm-1 col-xs-1">
-  	<span class="back-icon">
-      <a href="" ng-href="/"><i class="fa fa-angle-left" aria-hidden="true"></i></a>
-    </span>
-    </div>
-    <div class="col-md-10 col-sm-10 col-xs-10">
-      <div class="form">
-      <h1 class="light">Find a Product in Store</h1>
-    <div class="iconed-auto-completed">
-    
+  <div class="container form-container">
+  <h1 class="light">Find a Product in Store</h1>
+
+  <div class="col-md-11 col-sm-11 col-xs-11">
+    <div class="form">
+      
+    <div class="iconed-auto-completed">    
       <tags-input ng-model="selectedProduct"
               display-property="result"
               placeholder="Search For Product"
               replace-spaces-with-dashes="false"
               max-tags="1"
-              template="tag-template" add-from-autocomplete-only="false" class="form-control" restrict-to-max-tags ng-class="{'has-tags': product.length}"  on-tag-added="goProductlisting()">
-       <span class="icon"><i class="fa fa-search"></i></span>
+              add-on-blur="false"
+              template="tag-template" id="data" add-from-autocomplete-only="false" class="form-control" restrict-to-max-tags ng-class="{'has-tags': product.length}"  on-tag-added="goProductlisting()">
+       		  <span class="icon">
+       			<a ng-click="search()">
+                    <i class="fa fa search"></i>
+       			</a>
+       		  </span>
       <auto-complete source="loadSuggestions($query)"
                      min-length="2"
                      max-results-to-show="5"
                      select-first-match="false"
-                     add-on-blur="false"
                      debounce-delay="500"
                      template="autocomplete-template" class="autoComplete"></auto-complete>
       </tags-input>
       
-    </div>
-    </div>
-  </div>
+    	</div>
+     </div>
+   </div>
   <div class="col-md-1 col-sm-1 col-xs-1">
  	<span class="map-marker">
-     	  <a ng-click="openMap()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
+     	  <a ng-click="toggleMap()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
      </span>
  </div>
 </div>
@@ -59,19 +61,31 @@
     <span class="text">Searching</span>
   </div>
 </div>
+
+<div ng-if="!product_count">
+	<div class="product-listing container" ng-if="!productLoading">
+		<h1 class="light">No product found for "{{term}}"</h1>
+	</div>
+</div>
+
+<div ng-if="product_count">
 <div class="product-listing container" ng-if="!productLoading" infinite-scroll="loadMoreProducts()" infinite-scroll-disabled="productInfinteLoading" infinite-scroll-distance="0.05">
-  <h1 class="light">Showing {{product_count}} Results For "{{term}}"</h1>
+  <h1 class="light">Showing {{product_count}} results For "{{term}}"</h1>
 
   <div class="table-lister">
     <div class="lister-heading">
+    	<div class="row row-flex ">
   				<div class="sortComponent">
       				<p class="small"><b>Sort by</b></p>
     					<select ui-select2 ng-model="sortoption" class="wow-select" data-placeholder="Relevance" ng-required="true" ng-change="productSort(sortoption)"
     						data-ng-options="sort as sort.name for sort in sortoptions">
       						<option value=""></option>
     					</select>
+    			</div>
+    	</div>
     </div>
-        <div class="loading" ng-if="sortingProducts">
+        
+    <div class="loading" ng-if="sortingProducts">
 	  <div class="loader">
 	    <i class="fa fa-circle-o-notch fa-spin spinner" aria-hidden="true"></i>
 	    <span class="text">Sorting ...</span>
@@ -90,8 +104,8 @@
               </div>
               <div class="media-body">
               	<div class="media-body-content">
-                	<h2>{{product.description}}</h3>
-                	<h4>{{product.ecfcategory2}}</h5>
+                	<h2>{{product.description}}</h2>
+                	<h4>{{product.ecfcategory2}}</h4>
                 </div>
               </div>
             </div>
@@ -103,7 +117,7 @@
             <h5 class="aisle-number">{{product.instorelocation.replace('Find in', '')}}</h5>
           </div>
           <div class="col-sm-3 aisle-column" ng-if="product.instoreaisleid == undefined">
-            <h5 class="aisle-number">Please Contact at Desk</h5>
+            <h5 class="aisle-number">Ask the store team for aisle location</h5>
           </div>
         </div>
       </li>
@@ -133,4 +147,6 @@
   	$('.wow-select').select2();
     });
 </script>
-
+</div>
+</div>
+</div>

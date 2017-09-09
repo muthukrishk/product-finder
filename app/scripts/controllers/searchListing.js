@@ -8,31 +8,61 @@
  * Controller of the wowProductFinderApp
  */
 angular.module('wowProductFinderApp')
-  .controller('SearchListinCtrl', function ($routeParams, $scope, searchFactory, $location, $http, productService) {
+  .controller('SearchListinCtrl', function ($routeParams, $scope, searchFactory, $location, $http, mapService) {
 
-  	$scope.init = function() {
-  		$scope.selectedProduct = [];
-		$scope.sortoptions=[
-		        	        {id:"relevance",name:"Relevance"},
-		        	        {id:"alphabetical",name:"A to Z"},
-		        	        {id:"alphabetical",name:"Z to A"}];
+	  $scope.init = function() {
+	  		$scope.selectedProduct = [];
+			$scope.sortoptions=[
+		        {id:"relevance",name:"Relevance"},
+		        {id:"alphabetical",name:"A to Z"},
+		        {id:"alphabetical",name:"Z to A"}];
 
-  		$scope.term = $routeParams.term;
-  		var paramsObj = {};
-  		paramsObj.result = $routeParams.term;
-  		$scope.selectedProduct.push(paramsObj);
-  		$scope.LoadProducts($scope.term);
-  	};
+	  		$scope.term = $routeParams.term;
+	  		var paramsObj = {};
+	  		paramsObj.result = $routeParams.term;
+	  		$scope.selectedProduct.push(paramsObj);
+	  		$scope.mapPath = mapService.getmap();
+	    	if(!$scope.mapPath){
+	        	$scope.getStoreMap();
+	    	}
+	  		$scope.storeMapDiv = false;
+	  		$scope.LoadProducts($scope.term);
+	  	};
   	
-    $scope.closeMap = function() {
-        $scope.storeMapDiv = false;
-        angular.element('span.map-marker').removeClass('active');
-    };
-      
-    $scope.openMap = function() {
-        $scope.storeMapDiv = true;
-        angular.element('span.map-marker').addClass('active');
-    };
+	  	$scope.getStoreMap = function() {
+	  	    var data = {};
+	  		data.store = '1294';
+	  		return searchFactory.getMap(data).then(function (response){
+	  	        var map = response.message.entities[0].url;
+	  	        $scope.mapPath = map; 
+	  	    });
+	      };
+	      
+	     $scope.closeMap = function() {
+	         if($scope.storeMapDiv == true){
+	         	$scope.storeMapDiv = false; 
+	         	angular.element('span.map-marker').removeClass('active');
+	         }
+	    };
+
+	    $scope.toggleMap = function() {
+	        if($scope.storeMapDiv == false){
+			    $scope.storeMapDiv = true;
+			    $("html,body").animate({scrollTop: 0}, "slow");
+	    		angular.element('span.map-marker').addClass('active');
+	    }else{
+	    	$scope.storeMapDiv = false; 
+	    	angular.element('span.map-marker').removeClass('active');
+	      }       
+	    };
+
+	    $scope.search = function() {
+	  	  var product = $(".input").val().trim();
+	        if(!product){}
+	        else{
+	  	  		$location.path('/product-list/' + product);
+	        }
+	    };
       
   	$scope.loadSuggestions = function(term) {
       var data = {};
@@ -111,7 +141,6 @@ angular.module('wowProductFinderApp')
            $scope.sortingProducts = false;
            $scope.product_count = response.product_count;
            $scope.LoadMore = response.nextpage;
-           productService.setallProducts(response.products);
         });
 
       };
