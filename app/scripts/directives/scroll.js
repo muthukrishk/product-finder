@@ -14,3 +14,24 @@ angular.module('wowProductFinderApp').directive("scrollcustom", function ($windo
     	});
     };
 });
+
+/**angular.module('wowProductFinderApp').directive('setClassWhenAtTop', function ($window) {
+    var $win = angular.element($window);
+
+    return {
+        restrict: 'A',
+        link: function (scope, element, attrs) {
+            var topClass = attrs.setClassWhenAtTop, 
+                offsetTop = element.offset().top;
+            $win.on('scroll', function (e) {
+            	console.log(offsetTop);
+                if ($win.scrollTop() >= offsetTop) {
+                    element.addClass(topClass);
+                } else {
+                    element.removeClass(topClass);
+                }
+            });
+        }
+    };
+});
+**/

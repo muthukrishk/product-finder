@@ -1,18 +1,18 @@
 <div class="searchLanding">
-	<div class="brand">
-		<img src="../images/logo_white.png">
-	</div>
+	<h1 class="brand" aria-labelledby="Woolworths logo image" role="logo">
+		<img alt="Woolworths logo" src="../images/logo_white.png">
+	</h1>
 
 <div class="container">
-  <div class="store-info">
+  <div class="store-info" aria-labelledby="Store Map Image" role="map image">
       <div class="storeMap" ng-show="storeMapDiv"> 
-        <img src="{{mapPath}}">
-        <div ng-click="closeMap()" class="closebutton"></div>
+        <img alt="Store map" src="{{mapPath}}">
+        <div aria-labelledby="Close map" role="Close" ng-click="closeMap()" class="closebutton"></div>
       </div>
   </div>
 </div>
 </div>
-<div class="searchBar">
+<div class="searchBar" aria-labelledby="Search for products" role="Search">
  <div class="container form-container">
  	<h1 class="light">Find a Product in Store</h1>
  	<div class="col-md-11 col-sm-11 col-xs-11">
@@ -26,8 +26,8 @@
              add-on-blur="false"
              template="tag-template"  id="data" class="form-control" restrict-to-max-tags ng-class="{'has-tags': product.length}" on-tag-added="goProductlisting()">
            	<span class="icon">
-       			<a ng-click="search()">
-       				<i class="${properties.iconclass}"></i>
+       			<a title="Search" ng-click="search()">
+       				<i class="fa fa-search"></i>
        			</a>
        		</span>
      			<auto-complete source="loadSuggestions($query)"
@@ -42,14 +42,14 @@
    		</div>
    </div>
    <div class="col-md-1 col-sm-1 col-xs-1">
-    <span class="map-marker active">
+    <span aria-labelledby="Toggle Map" role="Toggle" class="map-marker active">
       	  <a ng-click="toggleMap()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
       </span>
     </div>
   </div>
 </div>
 
-  <div class="mostSearched">
+  <div class="mostSearched" aria-labelledby="Most Searched Keywords Section" role="keywords">
     <div class="container">
     	<h2 class="light">Most Searched Products:</h1>
     			<div ng-if="keyword">
