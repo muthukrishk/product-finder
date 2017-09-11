@@ -1,15 +1,15 @@
 (function () {
 'use strict';
 
-angular.module('wowProductFinderApp').service('productService',function () {
+angular.module('wowProductFinderApp').service('mapService',function () {
 
 
-  this.setallProducts = function (data) {
-    this.allProducts = data;
+  this.setmap = function (data) {
+    this.mapPath = data;
   };
 
-  this.getallProducts = function () {
-    return this.allProducts;
+  this.getmap = function () {
+    return this.mapPath;
   };
 
 
