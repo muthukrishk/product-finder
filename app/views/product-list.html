@@ -9,8 +9,8 @@
 	<div ng-show="storeMapDiv" class="container">
   		<div class="store-info" aria-labelledby="Store Map Image" role="map image">
       		<div class="storeMap"> 
-        		<img alt="Store map" src="{{mapPath}}">
-        		<div aria-labelledby="Close map" role="Close" ng-click="closeMap()" class="closebutton"></div>
+        		<img alt="Store map" src="{{mapImage}}">
+        		<img src="../images/map_close_icon.png" aria-labelledby="Close map" role="Close" ng-click="toggleMap()" class="closebutton"></img>
       		</div>
   		</div>
 	</div>
@@ -48,7 +48,7 @@
      </div>
    </div>
   <div class="col-md-1 col-sm-1 col-xs-1">
- 	<span aria-labelledby="Toggle Map" role="Toggle" class="map-marker">
+ 	<span aria-labelledby="Toggle Map" role="Toggle" class="map-marker" ng-class="{'active' : activate }">
      	  <a ng-click="toggleMap()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
      </span>
  </div>
@@ -74,7 +74,7 @@
 
   <div class="table-lister">
     <div class="lister-heading">
-    	<div class="row row-flex ">
+    	<div class="row">
   				<div class="sortComponent">
       				<p class="small"><b>Sort by</b></p>
     					<select ui-select2 ng-model="sortoption" class="wow-select" data-placeholder="Relevance" ng-required="true" ng-change="productSort(sortoption)"

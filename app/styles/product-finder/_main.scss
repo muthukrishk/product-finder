@@ -234,12 +234,6 @@ tags-input {
             &:hover {
                 color: $light;
             }
-            .row-flex {
-                display: block;
-            }
-        }
-        .row-flex {
-            display: block;
         }
     }
 }
@@ -458,7 +452,6 @@ tags-input {
         }
         .closebutton {
             cursor: pointer;
-            background-image: url(../images/map_close_icon.png);
             width: 37px;
             height: 37px;
         }
@@ -479,10 +472,10 @@ tags-input {
     .form-container {
         align-items: center;
         .form{
-        	 .iconed-auto-completed {
-        			margin: 0 -13px;
+        	.iconed-auto-completed {
+        	    margin: 0 -13px;
     			}
-        }
+        	}
     }
     .back-icon {
         position: absolute;
@@ -528,14 +521,14 @@ tags-input {
     margin: 25px;
     .container {
     	.hList{
-			.keywords{
+			.list-item{
 				color: $light;
   				border-radius: 25px;
   				background-color: #25861e;
   				padding: 10.5px;
   				font-weight: 400;
+  				cursor: pointer;
 			}
     	}
     }
-
 }

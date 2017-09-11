@@ -13,12 +13,13 @@ angular.module('wowProductFinderApp')
     $scope.selectedProduct = [];
 
     $scope.init = function() {
-    	$scope.mapPath = mapService.getmap();
-    	if(!$scope.mapPath){
+    	$scope.mapImage = mapService.getmap();
+    	if(!$scope.mapImage){
         	$scope.getStoreMap();
     	}
     	$scope.keyWords();
     	$scope.storeMapDiv = true;
+    	$scope.activate = true;
   		
   	};
   	
@@ -52,29 +53,21 @@ angular.module('wowProductFinderApp')
      $scope.getStoreMap = function() {
  	    var data = {};
  		data.store = '1294';
- 		return searchFactory.getMap(data).then(function (response){
+ 		searchFactory.getMap(data).then(function (response){
  	        var map = response.message.entities[0].url;
- 	        $scope.mapPath = map;
- 	        mapService.setmap($scope.mapPath);
+ 	        $scope.mapImage = map;
+ 	        mapService.setmap($scope.mapImage);
  	    });
      	$scope.storeMapDiv=true;
      };
-      
-    
-     $scope.closeMap = function() {
-         if($scope.storeMapDiv == true){
-         	$scope.storeMapDiv = false; 
-         	angular.element('span.map-marker').removeClass('active');
-         }
-       };
 
      $scope.toggleMap = function() {
          if($scope.storeMapDiv == false){
  		    $scope.storeMapDiv = true;
-     		angular.element('span.map-marker').addClass('active');
+ 		    $scope.activate = true;
      }else{
-     	$scope.storeMapDiv = false; 
-     	angular.element('span.map-marker').removeClass('active');
+     	$scope.storeMapDiv = false;
+     	$scope.activate = false;
        }
      };
 
