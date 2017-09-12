@@ -25,8 +25,8 @@ angular.module('wowProductFinderApp')
 	    	if(!$scope.mapImage){
 	        	$scope.getStoreMap();
 	    	}
-	  		$scope.storeMapDiv = false;
-	  		$scope.activate = false;
+	  		$scope.storeMap = false;
+	  		$scope.mapactive = false;
 	  		$scope.LoadProducts($scope.term);
 	  	};
   	
@@ -40,13 +40,13 @@ angular.module('wowProductFinderApp')
 	      };
 	      
 	    $scope.toggleMap = function() {
-	        if($scope.storeMapDiv == false){
-			    $scope.storeMapDiv = true;
-			    $scope.activate = true;
+	        if($scope.storeMap == false){
+			    $scope.storeMap = true;
+			    $scope.mapactive = true;
 			    $("html,body").animate({scrollTop: 0}, "slow");
 	    }else{
-	    	$scope.storeMapDiv = false; 
-	    	$scope.activate = false;
+	    	$scope.storeMap = false; 
+	    	$scope.mapactive = false;
 	      }       
 	    };
 

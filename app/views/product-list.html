@@ -6,7 +6,7 @@
 		</a>
 	</h1>
 
-	<div ng-show="storeMapDiv" class="container">
+	<div ng-show="storeMap" class="container">
   		<div class="store-info" aria-labelledby="Store Map Image" role="map image">
       		<div class="storeMap"> 
         		<img alt="Store map" src="{{mapImage}}">
@@ -48,7 +48,7 @@
      </div>
    </div>
   <div class="col-md-1 col-sm-1 col-xs-1">
- 	<span aria-labelledby="Toggle Map" role="Toggle" class="map-marker" ng-class="{'active' : activate }">
+ 	<span aria-labelledby="Toggle Map" role="Toggle" class="map-marker" ng-class="{'active' : mapactive }">
      	  <a ng-click="toggleMap()"><i class="fa fa-map-marker" aria-hidden="true"></i></a>
      </span>
  </div>
