@@ -162,17 +162,19 @@ tags-input {
     }
 }
 
-.autoComplete {
-    .autocomplete {
-        border-radius: 0 0 5px 5px;
-        border: 1px solid $light;
-        padding: 0px 10px;
-        margin-top: 0px
-    }
-    .suggestion-list {
-        border: 0;
-        max-height: 320px !important;
-    }
+.host {
+	.autoComplete {
+    	.autocomplete {
+        	border-radius: 0 0 5px 5px;
+        	border: 1px solid $light;
+        	padding: 0px 10px;
+        	margin-top: 0px;
+    	}
+    	.suggestion-list {
+        	border: 0;
+        	max-height: 320px;
+    	}
+	}
 }
 
 .fixed-form {
@@ -471,7 +473,7 @@ tags-input {
     }
     .form-container {
         align-items: center;
-        .form{
+        .form {
         	.iconed-auto-completed {
         	    margin: 0 -13px;
     			}
@@ -520,9 +522,9 @@ tags-input {
 .mostSearched {
     margin: 25px;
     .container {
-    	.hList{
-    		li{
-				.list-item{
+    	.hList {
+    		li {
+				.list-item {
 				color: $light;
   				border-radius: 25px;
   				background-color: #25861e;
