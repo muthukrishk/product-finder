@@ -521,13 +521,15 @@ tags-input {
     margin: 25px;
     .container {
     	.hList{
-			.list-item{
+    		li{
+				.list-item{
 				color: $light;
   				border-radius: 25px;
   				background-color: #25861e;
   				padding: 10.5px;
   				font-weight: 400;
   				cursor: pointer;
+  				}
 			}
     	}
     }
