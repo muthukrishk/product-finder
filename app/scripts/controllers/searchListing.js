@@ -8,7 +8,7 @@
  * Controller of the wowProductFinderApp
  */
 angular.module('wowProductFinderApp')
-  .controller('SearchListinCtrl', function ($routeParams, $scope, searchFactory, $location, $http, mapService) {
+  .controller('SearchListinCtrl', function ($routeParams, $scope, searchFactory, $location, $http, $timeout, mapService) {
 
 	  $scope.init = function() {
 	  		$scope.selectedProduct = [];
@@ -28,6 +28,7 @@ angular.module('wowProductFinderApp')
 	  		$scope.storeMap = false;
 	  		$scope.mapactive = false;
 	  		$scope.LoadProducts($scope.term);
+	  		$timeout( function(){ $scope.goToLandingPAge(); }, 30000);
 	  	};
   	
 	  	$scope.getStoreMap = function() {
@@ -77,6 +78,10 @@ angular.module('wowProductFinderApp')
       console.log($scope.selectedProduct);
       $location.path('/product-list/' + $scope.selectedProduct[0].result);
     };
+    
+    $scope.goToLandingPAge = function() {
+    	$location.path('/');
+    }
 
     $scope.loadMoreProducts = function() {
       console.log($scope.LoadMore.split('&'));
