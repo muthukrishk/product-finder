@@ -28,7 +28,7 @@ angular.module('wowProductFinderApp')
 	  		$scope.storeMap = false;
 	  		$scope.mapactive = false;
 	  		$scope.LoadProducts($scope.term);
-	  		$timeout( function(){ $scope.goToLandingPAge(); }, 30000);
+	  		//$timeout( function(){ $scope.goToLandingPAge(); }, 30000);
 	  	};
   	
 	  	$scope.getStoreMap = function() {
