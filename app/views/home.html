@@ -55,7 +55,7 @@
     			<div ng-if="keyword">
 					<ul class="hList">
   						<li ng-repeat="searchTermsList in keyword | limitTo: 20">
-  							<h4 ng-click = "keywordSearch(suggestions.searched_term)" class="list-item">{{searchTermsList.searched_term}}</h4>
+  							<h4 ng-click = "keywordSearch(searchTermsList.searched_term)" class="list-item">{{searchTermsList.searched_term}}</h4>
   						</li>
 					</ul>
     			</div>
