@@ -7,7 +7,8 @@ angular.module('wowProductFinderApp')
   var urls = {
 		    search: 'wow/v3/search',
 		    autocomplete: 'wow/v2/autocomplete',
-		    map: 'storemap/map'
+		    map: 'storemap/map',
+		    popularTerms : 'search-terms/popular/search-terms'
   };
 
   var searchFactory = {};
@@ -23,6 +24,10 @@ angular.module('wowProductFinderApp')
 
   searchFactory.getMap = function (data) {
 	    return HttpService.process(baseUrl+urls.map,'GET',data);
+};
+
+searchFactory.getPopularTerms = function (data) {
+    return HttpService.process(baseUrl+urls.popularTerms,'GET',data);
 };
 
   return searchFactory;

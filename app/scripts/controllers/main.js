@@ -40,9 +40,11 @@ angular.module('wowProductFinderApp')
     
     $scope.keyWords = function() {
         var data = {};
-        data.q = 'chocolate';
-        return searchFactory.suggestion(data).then(function (response){
-        	$scope.keyword = response.suggestions;
+        data.days = '10';
+        data.limit='20';
+        data.store='1649';
+        return searchFactory.getPopularTerms(data).then(function (response){
+        	$scope.keyword = response.searchTermsList;
         });
       };
       
