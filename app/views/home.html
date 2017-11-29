@@ -41,13 +41,16 @@
    		</div>
    		</div>-->
       <div class="form searchIconed">
-        <input type="text" ng-model="selectedProduct" placeholder="Search for products"  typeahead-editable="false" uib-typeahead="suggestion.result for suggestion in loadSuggestions($viewValue)" typeahead-on-select="goProductlisting($item, $model)" typeahead-no-results="noResults" class="typeAhead form-control">
+        <input type="text" ng-model="selectedProduct" placeholder="Search for products" ng-enter="goProductlistingEnter()" typeahead-wait-ms="700" typeahead-focus-first="false" typeahead-editable="true" uib-typeahead="suggestion.result for suggestion in loadSuggestions($viewValue)" typeahead-no-results="noResults" typeahead-on-select="goProductlisting($item, $model)" typeahead-no-results="noResults" class="typeAhead form-control">
         <span class="icon">
-          <a title="Search" ng-click="search()">
+          <a title="Search" ng-click="goProductlistingEnter()">
             <i class="fa fa-search"></i>
           </a>
         </span>
         <a ng-if="selectedProduct" class="remove-button" ng-click="$removeTag()">&times;</a>
+        <div class="noAutoSuggest" ng-show="noResults">
+          No Results Found
+        </div>
       </div>
    </div>
    <div class="col-md-1 col-sm-1 col-xs-1">

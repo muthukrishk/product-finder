@@ -91,5 +91,12 @@ angular.module('wowProductFinderApp')
       $location.path('/product-list/' + $item.result);
       console.log($item, $model);
     };
+
+    $scope.goProductlistingEnter = function() {
+      console.log($scope.selectedProduct);
+      if($scope.selectedProduct) {
+         $location.path('/product-list/' + $scope.selectedProduct);
+      }
+    };
     $scope.init();
   });

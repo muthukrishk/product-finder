@@ -21,7 +21,7 @@ angular.module('wowProductFinderApp').directive("scrollcustom", function ($windo
     return {
         restrict: 'A',
         link: function (scope, element, attrs) {
-            var topClass = attrs.setClassWhenAtTop, 
+            var topClass = attrs.setClassWhenAtTop,
                 offsetTop = element.offset().top;
             $win.on('scroll', function (e) {
             	console.log(offsetTop);
@@ -35,3 +35,17 @@ angular.module('wowProductFinderApp').directive("scrollcustom", function ($windo
     };
 });
 **/
+
+angular.module('wowProductFinderApp').directive('ngEnter', function() {
+        return function(scope, element, attrs) {
+            element.bind("keydown keypress", function(event) {
+                if(event.which === 13) {
+                        scope.$apply(function(){
+                                scope.$eval(attrs.ngEnter);
+                        });
+
+                        event.preventDefault();
+                }
+            });
+        };
+});
