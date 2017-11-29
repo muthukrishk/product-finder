@@ -4,19 +4,19 @@
 	</h1>
 
 <div class="container">
-  <div class="store-info" aria-labelledby="Store Map Image" role="map image">
-      <div class="storeMap" ng-show="storeMapDiv"> 
+  <!--<div class="store-info" aria-labelledby="Store Map Image" role="map image">
+      <div class="storeMap" ng-show="storeMapDiv">
         <img alt="Store map" src="{{mapPath}}">
         <div aria-labelledby="Close map" role="Close" ng-click="closeMap()" class="closebutton"></div>
       </div>
-  </div>
+  </div>-->
 </div>
 </div>
 <div class="searchBar" aria-labelledby="Search for products" role="Search">
  <div class="container form-container">
  	<h1 class="light">Find a Product in Store</h1>
  	<div class="col-md-11 col-sm-11 col-xs-11">
-     	<div class="form">
+     	<!--<div class="form">
   		<div class="iconed-auto-completed">
      		<tags-input ng-model="selectedProduct"
              display-property="result"
@@ -37,9 +37,18 @@
                     debounce-delay="500"
                     template="autocomplete-template" class="autoComplete"></auto-complete>
      			</tags-input>
-     
+
    		</div>
-   		</div>
+   		</div>-->
+      <div class="form searchIconed">
+        <input type="text" ng-model="selectedProduct" placeholder="Search for products"  typeahead-editable="false" uib-typeahead="suggestion.result for suggestion in loadSuggestions($viewValue)" typeahead-on-select="goProductlisting($item, $model)" typeahead-no-results="noResults" class="typeAhead form-control">
+        <span class="icon">
+          <a title="Search" ng-click="search()">
+            <i class="fa fa-search"></i>
+          </a>
+        </span>
+        <a ng-if="selectedProduct" class="remove-button" ng-click="$removeTag()">&times;</a>
+      </div>
    </div>
    <div class="col-md-1 col-sm-1 col-xs-1">
     <span aria-labelledby="Toggle Map" role="Toggle" class="map-marker active">
@@ -61,19 +70,5 @@
     			</div>
     </div>
   </div>
-
-	  <script type="text/ng-template" id="tag-template">
-    <div class="tag-template">
-      <div class="right-panel">
-        <span>{{data.result}}</span>
-        <a class="remove-button" ng-click="$removeTag()">&times;</a>
-      </div>
-    </div>
-  </script>
-  <script type="text/ng-template" id="autocomplete-template">
-    <div class="autocomplete-template">
-      <div>{{data.result}}</div>
-    </div>
-  </script>
 </div>
 

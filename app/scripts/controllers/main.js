@@ -10,7 +10,6 @@
 angular.module('wowProductFinderApp')
   .controller('MainCtrl', function ($scope, $location, searchFactory, mapService) {
 
-    $scope.selectedProduct = [];
 
     $scope.init = function() {
     	$scope.mapPath = mapService.getmap();
@@ -19,9 +18,9 @@ angular.module('wowProductFinderApp')
     	}
     	$scope.keyWords();
     	$scope.storeMapDiv = true;
-  		
+
   	};
-  	
+
      $scope.loadSuggestions = function(term) {
       var data = {};
       data.q = term;
@@ -36,7 +35,7 @@ angular.module('wowProductFinderApp')
       });
 
     };
-    
+
     $scope.keyWords = function() {
         var data = {};
         data.q = 'chocolate';
@@ -44,11 +43,11 @@ angular.module('wowProductFinderApp')
         	$scope.keyword = response.suggestions;
         });
       };
-      
+
      $scope.keywordSearch = function(keyword){
           $location.path('/product-list/' + keyword);
      }
-      
+
      $scope.getStoreMap = function() {
  	    var data = {};
  		data.store = '1294';
@@ -59,11 +58,11 @@ angular.module('wowProductFinderApp')
  	    });
      	$scope.storeMapDiv=true;
      };
-      
-    
+
+
      $scope.closeMap = function() {
          if($scope.storeMapDiv == true){
-         	$scope.storeMapDiv = false; 
+         	$scope.storeMapDiv = false;
          	angular.element('span.map-marker').removeClass('active');
          }
        };
@@ -73,7 +72,7 @@ angular.module('wowProductFinderApp')
  		    $scope.storeMapDiv = true;
      		angular.element('span.map-marker').addClass('active');
      }else{
-     	$scope.storeMapDiv = false; 
+     	$scope.storeMapDiv = false;
      	angular.element('span.map-marker').removeClass('active');
        }
      };
@@ -86,10 +85,11 @@ angular.module('wowProductFinderApp')
          }
      };
 
-    $scope.goProductlisting = function() {
-      console.log($scope.selectedProduct);
-      $location.path('/product-list/' + $scope.selectedProduct[0].result);
+
+
+    $scope.goProductlisting = function($item, $model) {
+      $location.path('/product-list/' + $item.result);
+      console.log($item, $model);
     };
-    
     $scope.init();
   });

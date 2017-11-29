@@ -16,7 +16,8 @@ angular
     'ngSanitize',
     'ngTouch',
     'ngTagsInput',
-    'infinite-scroll'
+    'infinite-scroll',
+    'ui.bootstrap'
   ]);
 
 

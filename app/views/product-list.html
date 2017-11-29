@@ -8,7 +8,7 @@
 
 	<div ng-show="storeMapDiv" class="container">
   		<div class="store-info" aria-labelledby="Store Map Image" role="map image">
-      		<div class="storeMap"> 
+      		<div class="storeMap">
         		<img alt="Store map" src="{{mapPath}}">
         		<div aria-labelledby="Close map" role="Close" ng-click="closeMap()" class="closebutton"></div>
       		</div>
@@ -21,31 +21,16 @@
   <h1 class="light">Find a Product in Store</h1>
 
   <div class="col-md-11 col-sm-11 col-xs-11">
-    <div class="form">
-      
-    <div class="iconed-auto-completed">    
-      <tags-input ng-model="selectedProduct"
-              display-property="result"
-              placeholder="Search For Product"
-              replace-spaces-with-dashes="false"
-              max-tags="1"
-              add-on-blur="false"
-              template="tag-template" id="data" add-from-autocomplete-only="false" class="form-control" restrict-to-max-tags ng-class="{'has-tags': product.length}"  on-tag-added="goProductlisting()">
-       		  <span class="icon">
-       			<a title="Search" ng-click="search()">
-                    <i class="fa fa-search"></i>
-       			</a>
-       		  </span>
-      <auto-complete source="loadSuggestions($query)"
-                     min-length="2"
-                     max-results-to-show="5"
-                     select-first-match="false"
-                     debounce-delay="500"
-                     template="autocomplete-template" class="autoComplete"></auto-complete>
-      </tags-input>
-      
-    	</div>
-     </div>
+
+    <div class="form searchIconed">
+        <input type="text" ng-model="selectedProduct" placeholder="Search for products"  typeahead-editable="false" uib-typeahead="suggestion.result for suggestion in loadSuggestions($viewValue)" typeahead-on-select="goProductlisting($item, $model)" typeahead-no-results="noResults" class="typeAhead form-control">
+        <span class="icon">
+          <a title="Search" ng-click="search()">
+            <i class="fa fa-search"></i>
+          </a>
+        </span>
+        <a ng-if="selectedProduct" class="remove-button" ng-click="removeTag()">&times;</a>
+      </div>
    </div>
   <div class="col-md-1 col-sm-1 col-xs-1">
  	<span aria-labelledby="Toggle Map" role="Toggle" class="map-marker">
@@ -84,7 +69,7 @@
     			</div>
     	</div>
     </div>
-        
+
     <div class="loading" ng-if="sortingProducts">
 	  <div class="loader">
 	    <i class="fa fa-circle-o-notch fa-spin spinner" aria-hidden="true"></i>

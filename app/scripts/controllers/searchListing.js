@@ -11,7 +11,7 @@ angular.module('wowProductFinderApp')
   .controller('SearchListinCtrl', function ($routeParams, $scope, searchFactory, $location, $http, mapService) {
 
 	  $scope.init = function() {
-	  		$scope.selectedProduct = [];
+	  		//$scope.selectedProduct = [];
 			$scope.sortoptions=[
 		        {id:"relevance",name:"Relevance"},
 		        {id:"alphabetical",name:"A to Z"},
@@ -20,7 +20,7 @@ angular.module('wowProductFinderApp')
 	  		$scope.term = $routeParams.term;
 	  		var paramsObj = {};
 	  		paramsObj.result = $routeParams.term;
-	  		$scope.selectedProduct.push(paramsObj);
+	  		$scope.selectedProduct = $routeParams.term;
 	  		$scope.mapPath = mapService.getmap();
 	    	if(!$scope.mapPath){
 	        	$scope.getStoreMap();
@@ -28,19 +28,19 @@ angular.module('wowProductFinderApp')
 	  		$scope.storeMapDiv = false;
 	  		$scope.LoadProducts($scope.term);
 	  	};
-  	
+
 	  	$scope.getStoreMap = function() {
 	  	    var data = {};
 	  		data.store = '1294';
 	  		return searchFactory.getMap(data).then(function (response){
 	  	        var map = response.message.entities[0].url;
-	  	        $scope.mapPath = map; 
+	  	        $scope.mapPath = map;
 	  	    });
 	      };
-	      
+
 	     $scope.closeMap = function() {
 	         if($scope.storeMapDiv == true){
-	         	$scope.storeMapDiv = false; 
+	         	$scope.storeMapDiv = false;
 	         	angular.element('span.map-marker').removeClass('active');
 	         }
 	    };
@@ -51,9 +51,9 @@ angular.module('wowProductFinderApp')
 			    $("html,body").animate({scrollTop: 0}, "slow");
 	    		angular.element('span.map-marker').addClass('active');
 	    }else{
-	    	$scope.storeMapDiv = false; 
+	    	$scope.storeMapDiv = false;
 	    	angular.element('span.map-marker').removeClass('active');
-	      }       
+	      }
 	    };
 
 	    $scope.search = function() {
@@ -63,8 +63,9 @@ angular.module('wowProductFinderApp')
 	  	  		$location.path('/product-list/' + product);
 	        }
 	    };
-      
+
   	$scope.loadSuggestions = function(term) {
+
       var data = {};
       data.q = term;
       return searchFactory.suggestion(data).then(function (response){
@@ -79,9 +80,13 @@ angular.module('wowProductFinderApp')
 
     };
 
-    $scope.goProductlisting = function() {
-      console.log($scope.selectedProduct);
-      $location.path('/product-list/' + $scope.selectedProduct[0].result);
+    $scope.removeTag = function() {
+      $scope.selectedProduct = null;
+    };
+
+    $scope.goProductlisting = function($item, $model) {
+      $location.path('/product-list/' + $item.result);
+      console.log($item, $model);
     };
 
     $scope.loadMoreProducts = function() {

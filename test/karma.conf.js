@@ -33,6 +33,7 @@ module.exports = function(config) {
       'bower_components/select2/select2.js',
       'bower_components/angular-ui-select2/src/select2.js',
       'bower_components/ngInfiniteScroll/build/ng-infinite-scroll.js',
+      'bower_components/angular-bootstrap/ui-bootstrap-tpls.js',
       'bower_components/angular-mocks/angular-mocks.js',
       // endbower
       'app/scripts/**/*.js',
