@@ -85,6 +85,9 @@ angular.module('wowProductFinderApp')
          }
      };
 
+     $scope.removeTag = function() {
+      $scope.selectedProduct = null;
+    };
 
 
     $scope.goProductlisting = function($item, $model) {
